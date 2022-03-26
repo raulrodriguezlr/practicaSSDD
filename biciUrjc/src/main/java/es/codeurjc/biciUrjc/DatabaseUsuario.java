@@ -22,8 +22,8 @@ public abstract class DatabaseUsuario implements   GestionUsuario {//no se porqu
 	@PostConstruct
 	public void userDB() {
 		UserRepository.saveAll(Arrays.asList(
-			new Usuario("Raul Rodriguez", "Qwerty123456"),
-			new Usuario("Daniel Requena","123456Qwerty")));
+			new Usuario("Raul Rodriguez", "Qwerty123456","26/03/2022"),
+			new Usuario("Daniel Requena","123456Qwerty","26/03/2022")));
 	} 
 	
 }

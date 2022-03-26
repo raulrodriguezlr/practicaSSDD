@@ -17,27 +17,29 @@ public class Usuario {
 	
 	public String nombre;
 	public URL foto;
-	public Date fechaAlta;
-
+	//public Date fechaAlta;//hay que ver esto
+	public String fechaAlta;
 	public boolean estado;//true=> activo false=> inactivo
 	
 	
 	public Usuario() {}
 	
-	public Usuario(String name,String contraseña,URL foto) {
+	public Usuario(String name,String contraseña,String fecha,URL foto) {
 		super();
 		this.nombre = name; 
 		this.contraseña=contraseña;
-		this.fechaAlta= new Date();//coge la fecha y hora del sistema en ese momento
+		this.fechaAlta=fecha;
+		//this.fechaAlta= new Date();//coge la fecha y hora del sistema en ese momento
 		this.foto=foto;
 		estado=true;
 				
 	}
-	public Usuario(String name,String contraseña) {
+	public Usuario(String name,String contraseña,String fecha) {
 		super();
 		this.nombre = name; 
+		this.fechaAlta=fecha;
 		this.contraseña=contraseña;
-		this.fechaAlta= new Date();//coge la fecha y hora del sistema en ese momento
+		//this.fechaAlta= new Date();//coge la fecha y hora del sistema en ese momento
 		estado=true;
 				
 	}
