@@ -1,9 +1,14 @@
 package es.codeurjc.biciUrjc;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+@SpringBootApplication
 public class Application {
 
     public static void main(String[] args) {
-    	System.out.println("Programa SECUNDARIO");
     	
+    	SpringApplication.run(Application.class, args);
     }
 }
