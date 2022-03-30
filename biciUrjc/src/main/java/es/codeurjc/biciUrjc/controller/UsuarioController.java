@@ -22,7 +22,7 @@ public class UsuarioController {
 		return "usuario";
 		}
 	*/
-	@GetMapping("/modulo_gestion_usuarios")
+	@GetMapping("/gestionUsuarios")
 	public String ModuloGestionUsuarios(Model model) {
 
 		return "modulo_gestion_usuarios";
