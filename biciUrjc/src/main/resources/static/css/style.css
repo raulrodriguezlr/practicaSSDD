@@ -46,6 +46,15 @@
     top:3em;
     left:40%;
 }
+#logo-img {
+    width: 100%;
+}
+
+#logo-img img {
+    width: 15%;
+    margin: auto;
+    padding-top: 1em;
+}
 
 
 
