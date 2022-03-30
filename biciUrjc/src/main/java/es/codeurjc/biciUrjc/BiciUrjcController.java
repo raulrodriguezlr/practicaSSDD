@@ -12,13 +12,17 @@ import es.codeurjc.biciUrjc.repository.RepoUsuario;
 
 @Controller
 public class BiciUrjcController {
+	
 	@Autowired
 	private RepoUsuario userInterface;
+	
 	@GetMapping("/")
 	public String lists(Model model) {
-		
 		return "index";
-		
-		
-		}
+	}
+	
+	@GetMapping("/modulo_gestion_usuarios")
+	public String ModuloGestionUsuarios(Model model) {
+		return "modulo_gestion_usuarios";
+	}
 }
