@@ -2,7 +2,7 @@
 	margin:0px;
 	padding:0px;
 	box-sizing:border-box;
-	 background-color: rgb(80, 103, 156);
+	background-color: rgb(80, 103, 156);
 	
 }
 .indexBotones{
@@ -24,7 +24,8 @@
     
     position:relative;
     top:10em;
-    left:40%;
+    left:40% ;
+    
 }
 
 .indexBotones:hover{
