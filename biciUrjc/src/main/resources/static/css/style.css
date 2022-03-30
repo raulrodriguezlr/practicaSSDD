@@ -6,7 +6,7 @@
 	
 }
 body{background-color: rgb(53, 53, 53);}
-.indexBotones{
+.boton{
 	height: 8em;
     width:	12em;
     font-family:Gill Sans MT;
@@ -27,7 +27,7 @@ body{background-color: rgb(53, 53, 53);}
     
 }
 
-.indexBotones:hover{
+.boton:hover{
 	height: 8em;
     width:	12em;
     font-family:Gill Sans MT;
