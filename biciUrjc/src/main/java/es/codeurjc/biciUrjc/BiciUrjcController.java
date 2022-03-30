@@ -1,4 +1,4 @@
-package es.codeurjc.biciUrjc.controller;
+package es.codeurjc.biciUrjc;
 
 import java.util.List;
 
@@ -11,13 +11,14 @@ import es.codeurjc.biciUrjc.model.Usuario;
 import es.codeurjc.biciUrjc.repository.RepoUsuario;
 
 @Controller
-public class UsuarioController {
+public class BiciUrjcController {
 	@Autowired
 	private RepoUsuario userInterface;
-	@GetMapping("/usuario")
+	@GetMapping("/")
 	public String lists(Model model) {
-		List<Usuario> usuariosList = userInterface.findAll();
-		model.addAttribute("usuario", usuariosList);
-		return "usuario";
+		
+		return "index";
+		
+		
 		}
 }

@@ -1,12 +1,34 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <body>
-     <p>Usuarios en la lista:</p>
-     <ul>
-     {{#usuario}}
-           <li>{{nombre}}</li>
-           
-     {{/usuario}}
+	<main>
+	<div >
+			{{#usuario}}
+			<section>
+			
+				<table class="table" >
+					
+					<thead>
+						<tr >
+							<td id="tabla">Nombre</td>
+							<td id="tabla"> Fecha de alta</td>
+							<td id="tabla"> Estado<td>
+						</tr>
+					<thead>
+					<tbody>
+						<tr>
+							<td id ="fila_tabla">{{nombre}} </td>
+							<td id ="fila_tabla">{{fechaAlta}} </td>
+							<td id ="fila_tabla">{{estado}}</td>
+						</tr>
+					</tbody>
+					
+				</table>
+			
+			</section>
+			{{/usuario}}
+		</div>
+	</main>
     
-     </ul>
 </body>
 </html>

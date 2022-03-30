@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Profile("local")
-public class componentUsuario {
+public class DBUserInitializer {
 	@Autowired
 	private RepoUsuario UserRepo;
 		

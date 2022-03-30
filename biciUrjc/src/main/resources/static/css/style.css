@@ -1,0 +1,52 @@
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing:border-box;
+	 background-color: rgb(80, 103, 156);
+	
+}
+.indexBotones{
+	height: 8em;
+    width:	12em;
+    font-family:Arial;
+    font-size:3em;
+    color: ghostwhite;
+    border:1em solid;
+    border-color: rgb(80, 168, 0);
+    background-color: rgb(100, 238, 85);
+    border-width: 0.25em;
+    border-radius: 0,25em;
+   
+    display:block;
+    text-align: center;
+   
+    margin-top: 1em;
+    
+    position:relative;
+    top:10em;
+    left:40%;
+}
+
+.indexBotones:hover{
+	height: 8em;
+    width:	12em;
+    font-family:Arial;
+    font-size:3em;
+    color: ghostwhite;
+    border:2px solid;
+    border-color: rgb(80, 168, 0);
+    background-color: rgb(80, 168, 0);
+    border-width: 0.25em;
+    border-radius: 0,25em;
+  
+    display:block;
+    text-align: center;
+    margin-top: 1em;
+    
+    position:relative;
+    top:10em;
+    left:40%;
+}
+
+
+

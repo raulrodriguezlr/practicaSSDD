@@ -1,9 +1,7 @@
 package es.codeurjc.biciUrjc.model;
 import java.net.URL;
-import es.codeurjc.*;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Optional;
 
 import javax.persistence.Entity;
