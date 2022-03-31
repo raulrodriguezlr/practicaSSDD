@@ -2,10 +2,10 @@
 	margin:0px;
 	padding:0px;
 	box-sizing:border-box;
-	background-color: rgb(53, 53, 53);
+	background-color: rgb(192, 192, 192);
 	
 }
-body{background-color: rgb(53, 53, 53);}
+body{background-color: rgb(192, 192, 192);}
 .boton{
 	height: 8em;
     width:	12em;
@@ -56,6 +56,63 @@ body{background-color: rgb(53, 53, 53);}
     margin: auto;
     padding-top: 1em;
 }
+/* DENTRO DE MODULO DE GESTION DE USUARIOS*/
+.up{
+	font-family: Gill Sans MT;
+	font-size: 3em;
+	color: white;
+	background-color: #CB0017;
+	
+	display:block;
+    text-align: center;
+    
+    position:relative;
+}
+#tabla{
+	font-family: Helvetica Light;
+	font-size:black;
+	
+	margin-top:0.5em;
+    
+    text-align: center;
+}
+#fila_tabla{
+	font-family: Helvetica Light;
+	font-size:black;
+	
+	margin-top:0.5em;
+    
+    text-align: center;
+}
+.btn-dtl{
+	height: 3em;
+    width:	6em;
+    font-family:Gill Sans MT;
+    font-size:1em;
+    color: ghostwhite;
+    background-color: #CB0017;
+    
+    margin-top:0em;
+    
+    display: inline-table;
+    text-align:center;
+}
+.btn-dtl:hover{
+	height: 3em;
+    width:	6em;
+    font-family:Gill Sans MT;
+    font-size:1em;
+    color: ghostwhite;
+    border:0.20em solid;
+    border-color: rgb(0, 0, 0);
+    background-color: #CB0017;
+    
+    margin-top:0em;
+    
+    display:inline-table;
+    text-align:center;
+}
+
 
 
 

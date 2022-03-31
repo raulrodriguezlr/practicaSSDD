@@ -35,7 +35,6 @@ public class UserService {
 		Usuario newUser = repository.save(user);
 		return newUser;
 	}
-	
 
 	public void delete(Long Id) {
 		repository.deleteById(Id);

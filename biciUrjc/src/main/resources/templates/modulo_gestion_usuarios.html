@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<title>gestion_usuario</title>
+		
+		<!--css-->
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+		<!--bootstrap-->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	</head>
 <body>
-	<main>
-	<div>
-		<p> ESTO ES EL MODULO DE GESTION DE USUARIOS </p>
+	<div class="up">
+		<p style="background-color: #CB0017"> GESTIÓN DE USUARIOS </p >
 	</div>
-	</main>
+	
+	<div class="listado_usuarios">
+			
+			<section>
+				<table class="table" >
+					<thead>
+						<tr >
+							<td id="tabla">NOMBRE</td>
+							<td id="tabla"> FECHA DE ALTA</td>
+							<td id="tabla"> ESTADO</td>
+							<td id="tabla"> INFORMACIÓN</td>
+						</tr>
+					<thead>
+					{{#usuario}}
+					<tbody>
+						<tr>
+							<td id ="fila_tabla">{{nombre}} </td>
+							<td id ="fila_tabla">{{fechaAlta}} </td>
+							<td id ="fila_tabla">{{estado}}</td>
+							<td id ="fila_tabla">
+								<button type="button" class="btn-dtl">Detalles</button>	
+							</td>
+						</tr>
+					</tbody>
+					{{/usuario}}
+				</table>
+			
+			</section>
+		</div>
+    
 </body>
-</html>	
+</html>

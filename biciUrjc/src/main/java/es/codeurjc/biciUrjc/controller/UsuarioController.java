@@ -12,19 +12,15 @@ import es.codeurjc.biciUrjc.repository.RepoUsuario;
 
 @Controller
 public class UsuarioController {
+	
 	@Autowired
 	private RepoUsuario userInterface;
-	/*
-	@GetMapping("/usuario")
+	
+	@GetMapping("/gestionUsuarios")
 	public String lists(Model model) {
 		List<Usuario> usuariosList = userInterface.findAll();
 		model.addAttribute("usuario", usuariosList);
-		return "usuario";
-		}
-	*/
-	@GetMapping("/gestionUsuarios")
-	public String ModuloGestionUsuarios(Model model) {
-
 		return "modulo_gestion_usuarios";
-		}
+	}
+
 }
