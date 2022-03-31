@@ -9,18 +9,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import es.codeurjc.biciUrjc.model.Usuario;
 import es.codeurjc.biciUrjc.repository.RepoUsuario;
+import es.codeurjc.biciUrjc.service.UserService;
 
 @Controller
 public class UsuarioController {
 	
 	@Autowired
 	private RepoUsuario userInterface;
-	
+	@Autowired
+	private UserService Uservice;
 	@GetMapping("/gestionUsuarios")
 	public String lists(Model model) {
-		List<Usuario> usuariosList = userInterface.findAll();
-		model.addAttribute("usuario", usuariosList);
+		List<Usuario> usuarios= userInterface.findAll();
+		model.addAttribute("usuario", usuarios);
 		return "modulo_gestion_usuarios";
 	}
-
+//esto es de la rama
 }
