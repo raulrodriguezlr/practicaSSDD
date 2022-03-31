@@ -56,6 +56,12 @@ body{background-color: rgb(192, 192, 192);}
     width: 15%;
     margin: auto;
     padding-top: 1px;
+    background-color: rgb(255,255, 255);   
+}
+#logo-img img {
+    width: 15%;
+    margin: auto;
+    padding-top: 1px;
     background-color: rgb(0, 0, 0);   
 }
 
