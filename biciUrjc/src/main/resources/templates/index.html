@@ -13,18 +13,32 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div class="botones_menu">
+		<div class="portada" id="portada">
 			<div class="inicio">
-				<div class="ui grid">
-               	 <a href="/" class="row" id="logo-img-blanco"><img class="ui image" src="/images/logo1.png"></a>
-		 		</div>
-			<div>
-				<button onclick="location.href='/gestionUsuarios'" type="button" class="boton">Modulo de gestion de Usuarios</button>
-			</div>
-			<div>
-				<button type="button" class="boton" id="GestionEstacion">Modulo de gestion de estación de bicicletas</button>
-				<button type="button" class="boton" id="GestionBicis">Gestion de bicicletas y su ciclo de vida</button>
-			</div>
+                <a href="/" class="row" id="logo-img-blanco"><img class="ui image" src="/images/logo1.png"></a>
+		 	</div>
+			<div class="menu_botones">
+				<div class="panel panel_gestion_usuarios">
+					<div class="dentro_panel">
+					<p id="cabecera">GESTION DE USUARIOS</p>
+					<div id="boton_falso"><a href="/gestionUsuarios">ACCEDER</a></div id="boton_falso">
+					</div>
+				</div>
+				<div class="panel panel_gestion_estaciones">
+					<div class="dentro_panel">
+					<p id="cabecera">GESTION DE ESTACION DE BICICLETAS</p>
+					<div id="boton_falso"><a href="/gestionUsuarios">ACCEDER</a></div id="boton_falso">
+					<!--<button type="button" class="boton" id="GestionEstacion">ACCEDER</button style="left:20%"> -->
+					</div>
+				</div>
+				<div class="panel panel_gestion_bicis">
+					<div class="dentro_panel">
+					<p id="cabecera">GESTION DE BICICLETAS Y SU CICLO DE VIDA</p>
+					<div id="boton_falso"><a href="/gestionUsuarios">ACCEDER</a></div id="boton_falso">
+					<!--<button type="button" class="boton" id="GestionBicis">ACCEDER</button>-->
+					</div>
+				</div>
+			</div class="menu_botones">
 		</div>
 	</body>
 </html>	
