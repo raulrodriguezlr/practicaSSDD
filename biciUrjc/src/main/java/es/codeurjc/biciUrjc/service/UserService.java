@@ -26,6 +26,9 @@ public class UserService {
 	public boolean exist(Long id) {
 		return repository.existsById(id);
 	}
+	public Optional<Usuario> findOne(long id) {
+		return repository.findById(id);
+	}
 
 	public List<Usuario> findAll() {
 		return repository.findAll();

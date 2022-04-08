@@ -13,14 +13,13 @@ import javax.persistence.Id;
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private long id;
 	public String contraseña;
 	
 	public String nombre;
-	//public Optional<URL> foto;
 	
 	public String fechaAlta;
-	public Estado estado;//true=> activo false=> inactivo
+	public Estado estado;
 	
 	private enum Estado{
 		ACTIVO,INACTIVO
