@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Entity
 public class Usuario {
 	@Id
@@ -17,6 +18,7 @@ public class Usuario {
 	public String contraseña;
 	
 	public String nombre;
+	public String apellido;
 	
 	public String fechaAlta;
 	public Estado estado;
@@ -26,9 +28,10 @@ public class Usuario {
 	}
 	public Usuario() {}
 	
-	public Usuario(String name,String contraseña,Optional<URL> photo) {
+	public Usuario(String name, String apellido,String contraseña) {
 		super();
 		this.nombre = name; 
+		this.apellido=apellido;
 		this.contraseña=contraseña;
 	
 	//	this.foto=(photo);
@@ -38,6 +41,7 @@ public class Usuario {
 		estado=Estado.ACTIVO;
 				
 	}
+	
 	public Usuario(String name,String contraseña) {
 		super();
 		this.nombre = name; 

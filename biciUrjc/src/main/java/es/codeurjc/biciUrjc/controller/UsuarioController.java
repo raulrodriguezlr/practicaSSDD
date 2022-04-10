@@ -21,6 +21,7 @@ public class UsuarioController {
 	private RepoUsuario userInterface;
 	@Autowired
 	private UserService Uservice;
+	
 	@GetMapping("/gestionUsuarios")
 	public String lists(Model model) {
 		List<Usuario> usuarios= userInterface.findAll();
@@ -40,6 +41,24 @@ public class UsuarioController {
 		}
 		
 
+	}
+	
+	@GetMapping("/agregarUsuarios")
+	public String agregarUsuario(Model model) {
+		
+		
+		return "agregarUsuario";
+		
+		
+	}
+	@GetMapping("/agregarUsuario")
+	public String agregarUsuario(Model model,@RequestParam String nombre, @RequestParam String apellido, @RequestParam String contraseña) {
+		
+		Usuario user = new Usuario(nombre,apellido,contraseña);
+		Uservice.save(user);
+		return "redirect:/gestionUsuarios";
+		
+		
 	}
 	
 	

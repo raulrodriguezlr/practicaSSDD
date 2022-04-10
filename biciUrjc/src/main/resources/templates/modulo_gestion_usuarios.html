@@ -16,9 +16,14 @@
 	<div id="header">
 		
 		<a href="/"  id="logo-img"><img class="ui image" src="/images/logo3.png"></a>
-		<p style="background-color: #CB0017"> GESTIÓN DE USUARIOS </p >
+		<p > GESTIÓN DE USUARIOS </p >
 				
 	</div>
+	<div id="accionesUsuario">
+		<button type="button" class="btn-dtl" onclick="location.href='/agregarUsuarios'">Agregar Usuario</button>	
+
+	</div id="accionesUsuario">
+		
 	<div class="listado_usuarios">
 			
 			<section>
@@ -36,7 +41,7 @@
 					<tbody>
 						<tr>
 							<td id ="fila_tabla">{{id}} </td>
-							<td id ="fila_tabla">{{nombre}} </td>
+							<td id ="fila_tabla">{{nombre}} {{apellido}} </td>
 							
 							<td id ="fila_tabla">{{estado}}</td>
 							<td id ="fila_tabla">
