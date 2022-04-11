@@ -18,17 +18,26 @@
 		<a href="/"  id="logo-img"><img class="ui image" src="/images/logo3.png"></a>
 		<p > Agregar Usuario </p >	
 	</div>
-	<div>
-		<form action= "/agregarUsuario">
-			<label for="nombre">Nombre:</label>
-			<input type="text" name="nombre"/>
-			<label for="apellido">Apellido:</label>
-			<input type="text" name="apellido"/>
-			<label for="contraseña">Contraseña:</label>
-			<input type="text" name="contraseña"/>
-	
-			<input type="submit" value="enviar"/>
-		</form>
+	<div id="formAgregarUser">
+		<form class="form" action= "/agregarUsuario">
+				<div  id= "agregarusuario">
+					<label  for="nombre">Nombre:&nbsp &nbsp &nbsp &nbsp &nbsp</label id="labelAgregarUsuario">
+					<input  type="text" name="nombre"/>
+				</div>
+				
+				<div id= "agregarusuario" >
+					<label  for="apellido">Apellido:&nbsp &nbsp  &nbsp&nbsp &nbsp&nbsp</label>
+					<input id= "agregarusuario" type="text" name="apellido"/>
+				</div id= "agregarusuario">
+				
+				<div id= "agregarusuario">
+					<label  for="contraseña">Contraseña:&nbsp&nbsp&nbsp</label>
+					<input id= "agregarusuario" type="text" name="contraseña"/>
+				
+				</div>
+				<input type="submit" class="btn-dtl" value="enviar"/>
 	</div>
+	
+	
 </body>
 </html>

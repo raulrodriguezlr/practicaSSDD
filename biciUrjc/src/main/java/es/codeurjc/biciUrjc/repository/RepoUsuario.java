@@ -21,13 +21,6 @@ public interface RepoUsuario  extends JpaRepository<Usuario, Long>{
 	 	@Modifying
 		   @Query(value = "update usuario set contraseña = :contraseña where id = :id",nativeQuery = true)
 		    void updateContraseñaById(@Param("id") long id, @Param("contraseña") String apellido);
-	 /*
-	 @Modifying
-	   @Query(value = "update Usuario u set u.Apellido = apellido where id = :id",nativeQuery = true)
-	    void updateSurnameById(@Param("id") long id, @Param("apellido") String apellido);
-	 @Modifying
-	   @Query(value = "update Usuario u set u.Contraseña = contraseña where id = :id",nativeQuery = true)
-	    void updateContraseñaById(@Param("id") long id, @Param("contraseña") String contraseña);
-	    */
+	
 }
 
