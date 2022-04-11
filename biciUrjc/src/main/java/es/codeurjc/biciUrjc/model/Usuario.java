@@ -52,4 +52,23 @@ public class Usuario {
 		estado=Estado.ACTIVO;
 				
 	}
+	public void setName(String nombreNuevo) {
+	
+		this.nombre=nombreNuevo;
+	}
+	public void setSurname(String apellido) {
+		this.apellido=apellido;
+	}
+	public void setPassword(String contraseña) {
+		this.contraseña=contraseña;
+	}
+	public String getName() {
+		return this.nombre;
+	}
+	public String getApellido() {
+		return this.apellido;
+	}
+	public String getContraseña() {
+		return this.contraseña;
+	}
 }

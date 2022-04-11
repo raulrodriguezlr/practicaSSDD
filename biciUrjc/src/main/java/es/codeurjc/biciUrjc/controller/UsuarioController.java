@@ -28,6 +28,8 @@ public class UsuarioController {
 		model.addAttribute("usuario", usuarios);
 		return "modulo_gestion_usuarios";
 	}
+	
+	
 	@GetMapping("/gestionUsuarios/{id}")
 	public String detalleUsuario(Model model,@PathVariable (value="id")long id){ 
 		//lo que ponemos en el modelo es lo que queremos que nos llegue gue como respuesta
@@ -53,11 +55,78 @@ public class UsuarioController {
 	}
 	@GetMapping("/agregarUsuario")
 	public String agregarUsuario(Model model,@RequestParam String nombre, @RequestParam String apellido, @RequestParam String contraseña) {
-		
 		Usuario user = new Usuario(nombre,apellido,contraseña);
 		Uservice.save(user);
 		return "redirect:/gestionUsuarios";
 		
+	}
+	@GetMapping("/gestionUsuarios/editar/{id}")
+	public String editarUsuarios(Model model,@PathVariable (value="id")long id){ 
+		Optional<Usuario> user = Uservice.findOne(id);
+		if(user.isPresent()) {
+			Usuario usuario = user.get();
+			model.addAttribute("Usuario", usuario);
+			return "editarUsuario";
+		}else {
+			return "index";
+		}
+		
+		
+
+	}
+	
+	@GetMapping("/editarUsuario/nombre/{id}")
+	public String editarNombre (Model model,@PathVariable (value="id")long id,@RequestParam Optional<String> nombre){
+		Optional<Usuario> user = Uservice.findOne(id);
+		Usuario usuario;
+		if(user.isPresent()) {
+			usuario = user.get();
+			String nombreNuevo = nombre.get();
+		
+			
+			Uservice.editarNombre(id, nombreNuevo);
+			
+			return "redirect:/gestionUsuarios";
+			
+		}
+		else
+			return  "redirect:/gestionUsuarios";
+		
+	}
+	@GetMapping("/editarUsuario/apellido/{id}")
+	public String editarApellido (Model model,@PathVariable (value="id")long id,@RequestParam Optional<String> apellido){
+		Optional<Usuario> user = Uservice.findOne(id);
+		Usuario usuario;
+		if(user.isPresent()) {
+			usuario = user.get();
+			String apellidoNuevo = apellido.get();
+		
+			
+			Uservice.editarApellido(id, apellidoNuevo);
+			
+			return "redirect:/gestionUsuarios";
+			
+		}
+		else
+			return  "redirect:/gestionUsuarios";
+		
+	}
+	@GetMapping("/editarUsuario/contraseña/{id}")
+	public String editarContraseña (Model model,@PathVariable (value="id")long id,@RequestParam Optional<String> contraseña){
+		Optional<Usuario> user = Uservice.findOne(id);
+		Usuario usuario;
+		if(user.isPresent()) {
+			usuario = user.get();
+			String contraseñaNuevo = contraseña.get();
+		
+			
+			Uservice.editarContraseña(id, contraseñaNuevo);
+			
+			return "redirect:/gestionUsuarios";
+			
+		}
+		else
+			return  "redirect:/gestionUsuarios";
 		
 	}
 	

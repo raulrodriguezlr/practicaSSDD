@@ -38,6 +38,22 @@ public class UserService {
 		Usuario newUser = repository.save(user);
 		return newUser;
 	}
+	public void editarNombre (long id,String name) {
+		repository.updateNombreById(id, name);
+	
+		
+	}
+	public void editarContraseña (long id,String pass) {
+		
+		repository.updateContraseñaById(id, pass);
+	
+	}
+	public void editarApellido (long id,String ape) {
+
+		
+		repository.updateApellidoById(id, ape);
+	}
+
 
 	public void delete(Long Id) {
 		repository.deleteById(Id);

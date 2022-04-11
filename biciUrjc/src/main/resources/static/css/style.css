@@ -1,7 +1,7 @@
 *{
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+	
 	background: white;
 }
 body{
@@ -129,20 +129,39 @@ body{
 }
 #tabla{
 	font-family: Helvetica Light;
-	font-size:black;
 	
-	margin-top:0.5em;
-    
+ 
+  margin-left:20%;
+  
     text-align: center;
 }
+
 #fila_tabla{
 	font-family: Helvetica Light;
 	font-size:black;
-	
-	margin-top:0.5em;
-    
+	margin-top:10px;
+ 
     text-align: center;
 }
+#fila_tabla_editarUser{
+	font-family: Helvetica Light;
+	font-size:black;
+	margin-top:10px;
+    border:none;
+    text-align: left;
+    margin-right:1em
+}
+
+#columna_tabla_editarUser{
+	text-align: left;
+}
+#tabla_editarUsuario{
+	
+	margin-top: 30px;
+	
+}
+
+
 .btn-dtl{
 	height: 3em;
     width:	6em;
@@ -156,6 +175,7 @@ body{
     display: inline-table;
     text-align:center;
 }
+
 #accionesUsuario{
 	display:flex;
 }
@@ -176,6 +196,14 @@ body{
     
     display:inline-table;
     text-align:center;
+}
+#editarUsuario {
+	font-family: Helvetica Light;
+	font-size:black;
+	
+	margin-top:0.5em;
+    
+    text-align: center;
 }
 
 

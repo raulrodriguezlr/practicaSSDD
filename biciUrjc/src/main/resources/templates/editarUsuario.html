@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Detalles De Usuario</title>
+		
+		<!--css-->
+		<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--bootstrap-->
+	   
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+	
+		<div id="header">
+		
+		<a href="/"  id="logo-img"><img class="ui image" src="/images/logo3.png"></a>
+		<p > DETALLES DE USUARIOS </p >
+					
+		</div>
+		
+		<div id="tabla_editarUsuario">
+			<section>
+				<table class="table" id="tabla">
+				{{#Usuario}}
+					<tbody>
+						<tr id="columna_tabla_editarUser" >
+							<td id="fila_tabla_editarUser"><b>Nombre actual:</b></td>
+							<td id="fila_tabla_editarUser">{{nombre}} </td>
+							<td id="fila_tabla_editarUser"> 
+								<form action= "/editarUsuario/nombre/{{id}}">
+									<label for="nombre">Nuevo Nombre:&nbsp &nbsp &nbsp &nbsp &nbsp </label>
+									<input type="text" name="nombre"/>
+									<input type="submit" class="btn-dtl" value="cambiar"/>
+								</form>
+							</td>
+						</tr fila_tabla_editarUser>
+						<tr d="columna_tabla_editarUser">
+							<td id ="fila_tabla_editarUser"> <b>Apellido actual:</b></td>
+							<td id ="fila_tabla_editarUser">{{apellido}} </td>
+							<td id="fila_tabla_editarUser"> 
+								<form action= "/editarUsuario/apellido/{{id}}">
+									<label for="nombre">Nuevo Apellido:&nbsp &nbsp  &nbsp&nbsp &nbsp</label>
+									<input type="text" name="apellido"/>
+									<input type="submit" class="btn-dtl" value="cambiar"/>
+								</form>
+							</td>
+						</tr>
+						<tr id="columna_tabla_editarUser">
+							<td id ="fila_tabla_editarUser"> <b>Contraseña actual</b></td>
+							<td id ="fila_tabla_editarUser">{{contraseña}} </td>
+							<td id="fila_tabla_editarUser"> 
+								<form action= "/editarUsuario/contraseña/{{id}}">
+									<label for="nombre">Nueva Contraseña:&nbsp  &nbsp </label>
+									<input type="text" name="contraseña"/>
+									<input type="submit" class="btn-dtl" value="cambiar"/>
+								</form>
+							</td>
+							
+						</tr>
+					</tbody>
+				{{/Usuario}}
+					
+				</table>
+			
+			</section>
+		</div id="tabla_editarUsuario">
+
+
+
+	</body>
+</html>
