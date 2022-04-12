@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 		<meta charset="UTF-8">
-		<title>Detalles De Usuario</title>
+		<title>gestion_usuario</title>
 		
 		<!--css-->
-		<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<!--bootstrap-->
@@ -16,10 +16,14 @@
 	<div id="header">
 		
 		<a href="/"  id="logo-img"><img class="ui image" src="/images/logo3.png"></a>
-		<p > DETALLES DE USUARIOS </p >
+		<p > GESTIÓN DE ESTACION DE BICICLETAS </p >
 				
 	</div>
-	
+	<div id="acciones">
+		<button type="button" class="btn-dtl" onclick="location.href='/agregarEstacion'">Agregar Estacion</button>	
+
+	</div id="acciones">
+		
 	<div class="listado_usuarios">
 			
 			<section>
@@ -27,26 +31,25 @@
 					<thead>
 						<tr >
 							<td id= "tabla">IDENTIFICADOR</td>
-							<td id="tabla">NOMBRE</td>
-							<td id="tabla">FECHA DE ALTA</td>
+							<td id="tabla">NUMERO DE SERIE</td>
+							
 							<td id="tabla"> ESTADO</td>
-							<td id="tabla"> CONTRASEÑA</td>
+							<td id="tabla"> INFORMACIÓN</td>
 						</tr>
 					<thead>
-					{{#usuarios}}
+					{{#estacion}}
 					<tbody>
 						<tr>
 							<td id ="fila_tabla">{{id}} </td>
-							<td id ="fila_tabla">{{nombre}} {{apellido}} </td>
-							<td id ="fila_tabla">{{fechaAlta}}</td>
+							<td id ="fila_tabla">{{numeroSerie}} </td>
+							
 							<td id ="fila_tabla">{{estado}}</td>
-							<td id ="fila_tabla">{{contraseña}}</td>
 							<td id ="fila_tabla">
 							<button type="button" class="btn-dtl" onclick="location.href='/gestionUsuarios/{{id}}'">Detalles</button>	
 							</td>
 						</tr>
 					</tbody>
-					{{/usuarios}}
+					{{/estacion}}
 				</table>
 			
 			</section>
