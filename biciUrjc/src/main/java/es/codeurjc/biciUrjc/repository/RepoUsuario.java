@@ -20,7 +20,7 @@ public interface RepoUsuario  extends JpaRepository<Usuario, Long>{
 		    void updateApellidoById(@Param("id") long id, @Param("apellido") String apellido);
 	 	@Modifying
 		   @Query(value = "update usuario set contraseña = :contraseña where id = :id",nativeQuery = true)
-		    void updateContraseñaById(@Param("id") long id, @Param("contraseña") String apellido);
+		    void updateContraseñaById(@Param("id") long id, @Param("contraseña") String contraseña);
 	
 }
 

@@ -44,13 +44,10 @@ public class UserService {
 		
 	}
 	public void editarContraseña (long id,String pass) {
-		
 		repository.updateContraseñaById(id, pass);
 	
 	}
 	public void editarApellido (long id,String ape) {
-
-		
 		repository.updateApellidoById(id, ape);
 	}
 
