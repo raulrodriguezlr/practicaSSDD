@@ -22,6 +22,8 @@ public class UsuarioController {
 	@Autowired
 	private UserService Uservice;
 	
+
+
 	@GetMapping("/gestionUsuarios")
 	public String lists(Model model) {
 		List<Usuario> usuarios= userInterface.findAll();
@@ -32,26 +34,23 @@ public class UsuarioController {
 	
 	@GetMapping("/gestionUsuarios/{id}")
 	public String detalleUsuario(Model model,@PathVariable (value="id")long id){ 
-		//lo que ponemos en el modelo es lo que queremos que nos llegue gue como respuesta
+		//lo que ponemos en el modelo es lo que queremos que nos llegue como respuesta
 		Optional<Usuario> user = Uservice.findOne(id);
 		if(user.isPresent()) {
 			Usuario usuario = user.get();
 			model.addAttribute("usuarios", usuario);
 			return "detallesUsuario";
 		}else {
-			return "index";
+			model.addAttribute("fallo","Fallo al mostrar los usuarios");
+			return "fallo";
 		}
 		
 
 	}
 	
 	@GetMapping("/agregarUsuarios")
-	public String agregarUsuario(Model model) {
-		
-		
+	public String agregarUsuario(Model model) {	
 		return "agregarUsuario";
-		
-		
 	}
 	@GetMapping("/agregarUsuario")
 	public String agregarUsuario(Model model,@RequestParam String nombre, @RequestParam String apellido, @RequestParam String contraseña) {
@@ -68,7 +67,8 @@ public class UsuarioController {
 			model.addAttribute("Usuario", usuario);
 			return "editarUsuario";
 		}else {
-			return "index";
+			model.addAttribute("fallo","Fallo al editar el usuario");
+			return "fallo";
 		}
 		
 		
@@ -89,8 +89,10 @@ public class UsuarioController {
 			return "redirect:/gestionUsuarios";
 			
 		}
-		else
-			return  "redirect:/gestionUsuarios";
+		else {
+			model.addAttribute("fallo","Fallo al cambiar el nombre");
+			return  "fallo";
+		}
 		
 	}
 	@GetMapping("/editarUsuario/apellido/{id}")
@@ -107,8 +109,10 @@ public class UsuarioController {
 			return "redirect:/gestionUsuarios";
 			
 		}
-		else
-			return  "redirect:/gestionUsuarios";
+		else {
+			model.addAttribute("fallo","Fallo al cambiar el apellido");
+			return  "fallo";
+		}
 		
 	}
 	@GetMapping("/editarUsuario/contraseña/{id}")
@@ -125,8 +129,10 @@ public class UsuarioController {
 			return "redirect:/gestionUsuarios";
 			
 		}
-		else
-			return  "redirect:/gestionUsuarios";
+		else {
+			model.addAttribute("fallo","Fallo al cambiar la contraseña");
+			return  "fallo";
+		}
 		
 	}
 	
