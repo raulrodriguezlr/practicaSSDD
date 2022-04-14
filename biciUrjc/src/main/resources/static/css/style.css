@@ -137,7 +137,6 @@ body{
     
 }
 
-	
 #header p{
 	background-color: #CB0017;
 	
@@ -237,6 +236,20 @@ body{
 #agregarusuario{
 	margin-top:20px;
 	margin-bottom:20px ;
+}
+/*GESTION DE ESTACIONES*/
+#mapa{
+	background-color: #CB0017;
+}
+#cabecera_estacion{
+	background-color: #CB0017;
+    font-family:Gill Sans MT;
+    font-size:2em;
+    color: ghostwhite;
+    display:inline;
+    position:relative;
+    left:25%;
+
 }
 
 

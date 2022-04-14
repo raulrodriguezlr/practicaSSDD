@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<title>Detalles De Usuario</title>
+		
+		<!--css-->
+		<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--bootstrap-->
+	   
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+<body>
+	<div id="header">
+		
+		<a href="/"  id="logo-img"><img class="ui image" src="/images/logo3.png"></a>
+		<p > DETALLES DE LAS ESTACIONES </p >
+				
+	</div>
+	
+	<div class="listado_estaciones">
+			<section>
+				<table class="table" >
+					<thead>
+						<tr >
+							<td id= "tabla">IDENTIFICADOR</td>
+							<td id="tabla">NUMERO DE SERIE</td>
+							<td id="tabla">COORDENADAS</td>
+							<td id="tabla"> CAPACIDAD</td>
+							<td id="tabla"> ESTADO</td>
+							<td id="tabla"> FECHA DE INSTALACION</td>
+						</tr>
+					<thead>
+					{{#estaciones}}
+					<tbody>
+						<tr>
+							<td id ="fila_tabla">{{id}} </td>
+							<td id ="fila_tabla">{{numeroSerie}} </td>
+							<td id ="fila_tabla">{{coordenadas}}</td>
+							<td id ="fila_tabla">{{capacidad}}</td>
+							<td id ="fila_tabla">{{estado}}</td>
+							<td id ="fila_tabla">{{fechaInstalacion}}</td>
+							<td id ="fila_tabla">
+							<button type="button" class="btn-dtl" onclick="location.href='/gestionUsuarios/editar/{{id}}'">Editar</button>	
+							</td>
+						</tr>
+					</tbody>
+					{{/estaciones}}
+				</table>
+			</section>
+		</div>
+		<div id="mapa">
+			<h1 id="cabecera_estacion">UBICACION</h1>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.317622452166!2d-3.8783201820898303!3d40.33529954898465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418e7adf68f543%3A0x841755428455a90b!2sUniversidad%20Rey%20Juan%20Carlos%20Campus%20M%C3%B3stoles!5e0!3m2!1ses!2ses!4v1649903348942!5m2!1ses!2ses" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+    	<div id="detalles_bicicletas">
+    		<h1 id="cabecera_estacion">DETALLES DE LAS BICICLETAS</h1>
+    	</div>
+</body>
+</html>

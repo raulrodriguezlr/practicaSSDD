@@ -41,7 +41,7 @@ public class UsuarioController {
 			model.addAttribute("usuarios", usuario);
 			return "detallesUsuario";
 		}else {
-			model.addAttribute("fallo","Fallo al mostrar los usuarios");
+			model.addAttribute("fallo","Fallo al mostrar los detalles del usuarios");
 			return "fallo";
 		}
 		
