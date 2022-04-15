@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Detalles De Usuario</title>
+		
+		<!--css-->
+		<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--bootstrap-->
+	   
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+	
+		<div id="header">
+		
+		<a href="/"  id="logo-img"><img class="ui image" src="/images/logo3.png"></a>
+		<p > DETALLES DE LA ESTACIÓN</p >
+					
+		</div>
+		
+		<div id="tabla_editarUsuario">
+			<section>
+				<table class="table" id="tabla">
+				{{#estacion}}
+					<tbody>
+						<tr id="columna_tabla_editarUser" >
+							<td id="fila_tabla_editarUser"><b>Ubicacion Actual:</b></td>
+							<td id="fila_tabla_editarUser">{{coordenadas}}</td>
+							<td id="fila_tabla_editarUser"> 
+								<form action= "/editarEstacion/coordenadas/{{id}}">
+									<label for="nombre">Nueva Coordenada:&nbsp &nbsp &nbsp &nbsp &nbsp </label>
+									<input type="text" name="coordenadas"/>
+									<input type="submit" class="btn-dtl" value="cambiar"/>
+								</form>
+							</td>
+						</tr >
+					</tbody>
+				{{/estacion}}
+					
+				</table>
+			
+			</section>
+		</div id="tabla_editarUsuario">
+
+
+
+	</body>
+</html>

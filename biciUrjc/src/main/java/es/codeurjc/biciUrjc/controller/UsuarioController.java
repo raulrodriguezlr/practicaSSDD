@@ -23,14 +23,12 @@ public class UsuarioController {
 	private UserService Uservice;
 	
 
-
 	@GetMapping("/gestionUsuarios")
 	public String lists(Model model) {
 		List<Usuario> usuarios= userInterface.findAll();
 		model.addAttribute("usuario", usuarios);
 		return "modulo_gestion_usuarios";
 	}
-	
 	
 	@GetMapping("/gestionUsuarios/{id}")
 	public String detalleUsuario(Model model,@PathVariable (value="id")long id){ 
@@ -41,11 +39,9 @@ public class UsuarioController {
 			model.addAttribute("usuarios", usuario);
 			return "detallesUsuario";
 		}else {
-			model.addAttribute("fallo","Fallo al mostrar los usuarios");
+			model.addAttribute("fallo","Fallo al mostrar los detalles del usuarios");
 			return "fallo";
 		}
-		
-
 	}
 	
 	@GetMapping("/agregarUsuarios")
@@ -57,7 +53,6 @@ public class UsuarioController {
 		Usuario user = new Usuario(nombre,apellido,contraseña);
 		Uservice.save(user);
 		return "redirect:/gestionUsuarios";
-		
 	}
 	@GetMapping("/gestionUsuarios/editar/{id}")
 	public String editarUsuarios(Model model,@PathVariable (value="id")long id){ 
@@ -70,9 +65,6 @@ public class UsuarioController {
 			model.addAttribute("fallo","Fallo al editar el usuario");
 			return "fallo";
 		}
-		
-		
-
 	}
 	
 	@GetMapping("/editarUsuario/nombre/{id}")
@@ -82,10 +74,7 @@ public class UsuarioController {
 		if(user.isPresent()) {
 			usuario = user.get();
 			String nombreNuevo = nombre.get();
-		
-			
 			Uservice.editarNombre(id, nombreNuevo);
-			
 			return "redirect:/gestionUsuarios";
 			
 		}
@@ -102,10 +91,7 @@ public class UsuarioController {
 		if(user.isPresent()) {
 			usuario = user.get();
 			String apellidoNuevo = apellido.get();
-		
-			
 			Uservice.editarApellido(id, apellidoNuevo);
-			
 			return "redirect:/gestionUsuarios";
 			
 		}
@@ -122,10 +108,7 @@ public class UsuarioController {
 		if(user.isPresent()) {
 			usuario = user.get();
 			String contraseñaNuevo = contraseña.get();
-		
-			
 			Uservice.editarContraseña(id, contraseñaNuevo);
-			
 			return "redirect:/gestionUsuarios";
 			
 		}

@@ -62,4 +62,5 @@ public class estacionBicicletas {
 	public int getCapacidad() {
 		return this.capacidad;
 	}
+	
 }

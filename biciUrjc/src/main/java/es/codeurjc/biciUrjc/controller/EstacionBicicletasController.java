@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import es.codeurjc.biciUrjc.model.Usuario;
 import es.codeurjc.biciUrjc.model.estacionBicicletas;
 import es.codeurjc.biciUrjc.repository.RepoEstacionBicis;
-import es.codeurjc.biciUrjc.repository.RepoUsuario;
-import es.codeurjc.biciUrjc.service.UserService;
+import es.codeurjc.biciUrjc.service.EstacionService;
+
 
 @Controller
 public class EstacionBicicletasController {
@@ -22,7 +22,7 @@ public class EstacionBicicletasController {
 	@Autowired
 	private RepoEstacionBicis estacionInterface;
 	@Autowired
-	private UserService Uservice;
+	private EstacionService Estaservice;
 	
 	@GetMapping("/gestionEstaciones")
 	public String lists(Model model) {
@@ -31,7 +31,72 @@ public class EstacionBicicletasController {
 		return "modulo_gestion_estacion_bicicletas";
 	}
 	
+	@GetMapping("/gestionEstaciones/{id}")
+	public String detalleEstacion(Model model,@PathVariable (value="id")long id){ 
+		//lo que ponemos en el modelo es lo que queremos que nos llegue como respuesta
+		Optional<estacionBicicletas> est = Estaservice.findOne(id);
+		if(est.isPresent()) {
+			estacionBicicletas estacion = est.get();
+			model.addAttribute("estaciones", estacion);
+			return "detallesEstacion";
+		}else {
+			model.addAttribute("fallo","Fallo al mostrar los detalles de la estacion");
+			return "fallo";
+		}
+	}
 	
+	@GetMapping("/agregarEstaciones")
+	public String agregarEstaciones(Model model) {	
+		return "agregarEstacion";
+	}
 	
+	@GetMapping("/agregarEstacion")
+	public String agregarEstacion(Model model,@RequestParam int numeroSerie, @RequestParam String coordenadas, @RequestParam int capacidad) {
+		estacionBicicletas est = new estacionBicicletas(numeroSerie,coordenadas,capacidad);
+		Estaservice.save(est);
+		return "redirect:/gestionEstaciones";
+	}
+	
+	@GetMapping("/gestionEstacion/editar/{id}")
+	public String editarEstacion(Model model,@PathVariable (value="id")long id){ 
+		Optional<estacionBicicletas> est = Estaservice.findOne(id);
+		if(est.isPresent()) {
+			estacionBicicletas estacion = est.get();
+			model.addAttribute("estacion", estacion);
+			return "editarEstacion";
+		}else {
+			model.addAttribute("fallo","Fallo al editar las coordenadas");
+			return "fallo";
+		}
+	}
+	@GetMapping("/editarEstacion/coordenadas/{id}")
+	public String editarCoordenadas(Model model,@PathVariable (value="id")long id,@RequestParam Optional<String> coordenadas){
+		Optional<estacionBicicletas> est = Estaservice.findOne(id);
+		estacionBicicletas estacion;
+		if(est.isPresent()) {
+			estacion = est.get();
+			String coordenadaNueva = coordenadas.get();
+			Estaservice.editarCoordenadas(id, coordenadaNueva);
+			return "redirect:/gestionEstaciones";
+		}
+		else {
+			model.addAttribute("fallo","Fallo al cambiar las coordenadas");
+			return  "fallo";
+		}
+	}
+	// NO HACE NADA, SOLO REDIRIJE
+	@GetMapping("/gestionEstacion/borrar/{id}")
+	public String borrarEstacion(Model model,@PathVariable (value="id")long id) {
+		Optional<estacionBicicletas> est = Estaservice.findOne(id);
+		if(est.isPresent()) {
+
+
+			return "redirect:/gestionEstaciones";
+		}
+		else {
+			model.addAttribute("fallo","Fallo al eliminar la estacion");
+			return  "fallo";
+		}
+	}
 	
 }

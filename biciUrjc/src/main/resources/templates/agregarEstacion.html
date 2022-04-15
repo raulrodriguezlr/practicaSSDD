@@ -16,24 +16,26 @@
 	<div id="header">
 		
 		<a href="/"  id="logo-img"><img class="ui image" src="/images/logo3.png"></a>
-		<p >AGREGAR USUARIO</p >	
+		<p >AGREGAR ESTACIÓN</p >	
 	</div>
 	<div id="formAgregar">
-		<form class="form" action= "/agregarUsuario">
+		<form class="form" action= "/agregarEstacion">
 				<div  id= "agregar">
-					<label  for="nombre">Nombre:&nbsp &nbsp &nbsp &nbsp &nbsp</label id="labelAgregarUsuario">
-					<input  type="text" name="nombre"/>
+					<label  for="nombre">Numero de Serie:&nbsp &nbsp &nbsp &nbsp &nbsp</label id="labelAgregarUsuario">
+					<input  type="number" name="numeroSerie"/>
 				</div>
 				
 				<div id= "agregar" >
-					<label  for="apellido">Apellido:&nbsp &nbsp  &nbsp&nbsp &nbsp&nbsp</label>
-					<input id= "agregar" type="text" name="apellido"/>
+					<label  for="apellido">Coordenadas:&nbsp &nbsp  &nbsp&nbsp &nbsp&nbsp</label>
+					<input id= "agregar" type="text" name="coordenadas"/>
 				</div id= "agregar">
 				
 				<div id= "agregar">
-					<label  for="contraseña">Contraseña:&nbsp&nbsp&nbsp</label>
-					<input id= "agregar" type="text" name="contraseña"/>
-				
+					<label for="contraseña">Capacidad:&nbsp&nbsp&nbsp</label>
+					<select name="capacidad">
+					<option>5</option>
+					<option>10</option>
+					</select>
 				</div>
 				<input type="submit" class="btn-dtl" value="enviar"/>
 	</div>
