@@ -15,9 +15,7 @@ import es.codeurjc.biciUrjc.model.estacionBicicletas;
 public interface RepoEstacionBicis  extends JpaRepository<estacionBicicletas, Long>{
 
 	 	@Modifying
-	   @Query(value = "update estacion set coordenadas = :coordenadas where id = :id",nativeQuery = true)
+	   @Query(value = "update estacionbicicletas set coordenadas = :coordenadas where id = :id",nativeQuery = true)
 	    void updateCoordenadasById(@Param("id") long id, @Param("coordenadas") String coordenadas);
-
-	
 }
 

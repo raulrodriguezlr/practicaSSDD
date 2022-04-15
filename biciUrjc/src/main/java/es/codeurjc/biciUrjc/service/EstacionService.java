@@ -34,12 +34,12 @@ public class EstacionService{
 		return repository.findAll();
 	}
 	
-	public estacionBicicletas save (estacionBicicletas estacion) {
+	public estacionBicicletas save(estacionBicicletas estacion) {
 		estacionBicicletas newEstacion = repository.save(estacion);
 		return newEstacion;
 	}
-	public void editarCoordenadas (long id,String coordenadas) {
-		repository.updateCoordenadasById(id, coordenadas);
+	public void editarCoordenadas(long id,String coord) {
+		repository.updateCoordenadasById(id, coord);
 	}
 
 	public void delete(Long Id) {

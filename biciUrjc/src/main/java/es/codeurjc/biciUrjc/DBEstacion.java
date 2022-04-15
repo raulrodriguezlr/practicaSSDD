@@ -1,7 +1,6 @@
 package es.codeurjc.biciUrjc;
 
 import java.util.Arrays;
-import es.codeurjc.biciUrjc.model.Usuario;
 import es.codeurjc.biciUrjc.model.estacionBicicletas;
 import es.codeurjc.biciUrjc.repository.RepoEstacionBicis;
 
@@ -26,8 +25,8 @@ public class DBEstacion {
 	
 	public void userDB() {
 		EstacionRepo.saveAll(Arrays.asList(
-			new estacionBicicletas(0000001,"25.0N,90E", 8),
-			new estacionBicicletas(0000345,"34.0N,69E", 12)//mirar por que sale un numero random en gestion de estaciones
+			new estacionBicicletas(0000001,"25.0N,90E", 5),
+			new estacionBicicletas(0000055,"34.0N,69E", 10)//mirar por que sale un numero random en gestion de estaciones
 			));
 	}
 	
