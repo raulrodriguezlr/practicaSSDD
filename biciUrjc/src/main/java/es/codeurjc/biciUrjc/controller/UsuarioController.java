@@ -118,6 +118,39 @@ public class UsuarioController {
 		}
 		
 	}
-	
+	@GetMapping("/editarUsuario/baja/{id}")
+	public String editarInactivo (Model model,@PathVariable (value="id")long id){
+		Optional<Usuario> user = Uservice.findOne(id);
+		Usuario usuario;
+		if(user.isPresent()) {
+			usuario = user.get();
+			
+			Uservice.editarActivo(id, "INACTIVO");
+			return "redirect:/gestionUsuarios";
+			
+		}
+		else {
+			model.addAttribute("fallo","Fallo al cambiar el estado");
+			return  "fallo";
+		}
+		
+	}
+	@GetMapping("/editarUsuario/alta/{id}")
+	public String editarActivo (Model model,@PathVariable (value="id")long id){
+		Optional<Usuario> user = Uservice.findOne(id);
+		Usuario usuario;
+		if(user.isPresent()) {
+			usuario = user.get();
+			
+			Uservice.editarActivo(id, "ACTIVO");
+			return "redirect:/gestionUsuarios";
+			
+		}
+		else {
+			model.addAttribute("fallo","Fallo al cambiar el estado");
+			return  "fallo";
+		}
+		
+	}
 	
 }

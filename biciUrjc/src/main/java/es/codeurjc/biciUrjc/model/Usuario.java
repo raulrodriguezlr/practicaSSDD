@@ -21,11 +21,9 @@ public class Usuario {
 	public String apellido;
 	
 	public String fechaAlta;
-	public Estado estado;
+	public String Estado;
 	
-	private enum Estado{
-		ACTIVO,INACTIVO
-	}
+	
 	public Usuario() {}
 	
 	public Usuario(String name, String apellido,String contraseña) {
@@ -38,7 +36,7 @@ public class Usuario {
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		this.fechaAlta = dtf.format(LocalDateTime.now());
-		estado=Estado.ACTIVO;
+		this.Estado="ACTIVO";
 				
 	}
 	
@@ -49,12 +47,16 @@ public class Usuario {
 		this.fechaAlta = dtf.format(LocalDateTime.now());
 		this.contraseña=contraseña;
 	//	this.foto=Optional.empty();
-		estado=Estado.ACTIVO;
+		this.Estado="ACTIVO";
 				
 	}
 	public void setName(String nombreNuevo) {
 	
 		this.nombre=nombreNuevo;
+	}
+	public void setActivo(String estado) {
+		
+		this.Estado=estado;
 	}
 	public void setSurname(String apellido) {
 		this.apellido=apellido;
@@ -70,5 +72,8 @@ public class Usuario {
 	}
 	public String getContraseña() {
 		return this.contraseña;
+	}
+	public String getEstado() {
+		return this.Estado;
 	}
 }
