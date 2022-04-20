@@ -84,13 +84,13 @@ public class EstacionBicicletasController {
 			return  "fallo";
 		}
 	}
-	// NO HACE NADA, SOLO REDIRIJE
-	@GetMapping("/gestionEstacion/borrar/{id}")
-	public String borrarEstacion(Model model,@PathVariable (value="id")long id) {
+	@GetMapping("/gestionEstacion/baja/{id}")
+	public String DarDeBajaEstacion(Model model,@PathVariable (value="id")long id) {
 		Optional<estacionBicicletas> est = Estaservice.findOne(id);
+		estacionBicicletas estacion;
 		if(est.isPresent()) {
-
-
+			estacion = est.get();
+			Estaservice.editarActivo(id,"INACTIVO");
 			return "redirect:/gestionEstaciones";
 		}
 		else {
@@ -98,5 +98,18 @@ public class EstacionBicicletasController {
 			return  "fallo";
 		}
 	}
-	
+	@GetMapping("/gestionEstacion/alta/{id}")
+	public String DarDeAltaEstacion(Model model,@PathVariable (value="id")long id) {
+		Optional<estacionBicicletas> est = Estaservice.findOne(id);
+		estacionBicicletas estacion;
+		if(est.isPresent()) {
+			estacion = est.get();
+			Estaservice.editarActivo(id,"ACTIVO");
+			return "redirect:/gestionEstaciones";
+		}
+		else {
+			model.addAttribute("fallo","Fallo al eliminar la estacion");
+			return  "fallo";
+		}
+	}
 }

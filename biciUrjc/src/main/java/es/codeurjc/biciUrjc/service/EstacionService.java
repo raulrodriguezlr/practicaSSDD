@@ -41,7 +41,9 @@ public class EstacionService{
 	public void editarCoordenadas(long id,String coord) {
 		repository.updateCoordenadasById(id, coord);
 	}
-
+	public void editarActivo(long id,String Estado) {
+		repository.updateEstadoById(id, Estado);
+	}
 	public void delete(Long Id) {
 		repository.deleteById(Id);
 	}

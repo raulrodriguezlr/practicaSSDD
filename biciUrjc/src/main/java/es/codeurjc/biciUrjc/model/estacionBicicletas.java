@@ -21,12 +21,9 @@ public class estacionBicicletas {
 	public String coordenadas;
 	
 	public int capacidad;
-	public Estado estado;
+	public String estado;
 	public String fechaInstalacion;
 	
-	private enum Estado{
-		ACTIVO,INACTIVO
-	}
 	public estacionBicicletas() {}
 	
 	public estacionBicicletas(int numeroSerie, String coordenadas,int capacidad) {
@@ -38,13 +35,11 @@ public class estacionBicicletas {
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		this.fechaInstalacion = dtf.format(LocalDateTime.now());
-		estado=Estado.ACTIVO;
-				
+		this.estado="ACTIVO";	
 	}
 	
 	
 	public void setNumeroSerie(int numSerie) {
-	
 		this.numeroSerie=numSerie;
 	}
 	public void setSCoordenadas(String coordenadas) {
@@ -52,6 +47,9 @@ public class estacionBicicletas {
 	}
 	public void setCapacidad(int capacidad) {
 		this.capacidad=capacidad;
+	}
+	public void setEstado(String estado) {
+		this.estado=estado;
 	}
 	public int getNumeroSerie() {
 		return this.numeroSerie;
@@ -61,6 +59,9 @@ public class estacionBicicletas {
 	}
 	public int getCapacidad() {
 		return this.capacidad;
+	}
+	public String getEstado() {
+		return this.estado;
 	}
 	
 }

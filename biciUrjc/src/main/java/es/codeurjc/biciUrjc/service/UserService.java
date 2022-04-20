@@ -45,11 +45,7 @@ public class UserService {
 	}
 	public void editarActivo (long id,String Estado) {
 		repository.updateEstadoById(id, Estado);
-	
-		
 	}
-	
-	
 	public void editarContraseña (long id,String pass) {
 		repository.updateContraseñaById(id, pass);
 	
