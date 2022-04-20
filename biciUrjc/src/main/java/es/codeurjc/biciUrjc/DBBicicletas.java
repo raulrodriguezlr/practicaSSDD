@@ -1,7 +1,10 @@
 package es.codeurjc.biciUrjc;
 
 import java.util.Arrays;
+
+import es.codeurjc.biciUrjc.model.Bicicleta;
 import es.codeurjc.biciUrjc.model.estacionBicicletas;
+import es.codeurjc.biciUrjc.repository.RepoBicicletas;
 import es.codeurjc.biciUrjc.repository.RepoEstacionBicis;
 
 
@@ -14,19 +17,19 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Profile("local")
-public class DBEstacion {
+public class DBBicicletas {
 	
 	
 	
 	@Autowired
-	private RepoEstacionBicis EstacionRepo;
+	private RepoBicicletas BicicletasRepo;
 		
 	@PostConstruct
 	
 	public void userDB() {
-		EstacionRepo.saveAll(Arrays.asList(
-			new estacionBicicletas(001,"25.0N,90E", 5),
-			new estacionBicicletas(0345,"34.0N,69E", 10)//mirar por que sale un numero random en gestion de estaciones
+		BicicletasRepo.saveAll(Arrays.asList(
+			new Bicicleta("0o1p2q3r4s5t6u7v","MOUNTAIN"),
+			new Bicicleta("0a1b2c3d4e5f6g7h","BMX")//mirar por que sale un numero random en gestion de estaciones
 
 			));
 	}

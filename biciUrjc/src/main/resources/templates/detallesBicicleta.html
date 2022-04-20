@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 		<meta charset="UTF-8">
-		<title>gestion_estaciones</title>
+		<title>Detalles De Usuario</title>
 		
 		<!--css-->
-		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="/css/style.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<!--bootstrap-->
@@ -16,48 +16,44 @@
 	<div id="header">
 		
 		<a href="/"  id="logo-img"><img class="ui image" src="/images/logo3.png"></a>
-		<p > GESTIÓN DE ESTACION DE BICICLETAS </p >
+		<p > DETALLES DE LA ESTACIÓN </p >
 				
 	</div>
-
-	<div id="acciones">
-		<button type="button" class="btn-dtl" onclick="location.href='/agregarEstaciones'">Agregar Bicicleta</button>	
-
-
-	</div>
-		
-	<div class="listado_usuarios">
-			
+	
+	<div class="estacion">
 			<section>
 				<table class="table" >
 					<thead>
 						<tr >
-							<td id= "tabla">IDENTIFICADOR</td>
 							<td id="tabla">NUMERO DE SERIE</td>
-							
+							<td id="tabla">MODELO</td>
+							<td id="tabla"> FECHA DE ALTA</td>
 							<td id="tabla"> ESTADO</td>
-							<td id="tabla"> INFORMACIÓN</td>
 						</tr>
 					<thead>
-					{{#estacion}}
+					{{#bicicleta}}
 					<tbody>
 						<tr>
-							<td id ="fila_tabla">{{id}} </td>
 							<td id ="fila_tabla">{{numeroSerie}} </td>
-							
+							<td id ="fila_tabla">{{modelo}}</td>
+							<td id ="fila_tabla">{{fechaAlta}}</td>
 							<td id ="fila_tabla">{{estado}}</td>
 							<td id ="fila_tabla">
-
-							<button type="button" class="btn-dtl" onclick="location.href='/gestionEstaciones/{{id}}'">Detalles</button>	
+							<button type="button" class="btn-dtl" onclick="location.href='/AsignarBase/{{id}}'">Asignar Base (Sin Base)</button>
+							<td id ="fila_tabla">
+							<button type="button" class="btn-dtl" onclick="location.href='/gestionBicicleta/baja/{{id}}'">Dar de baja</button>	
 
 							</td>
 						</tr>
 					</tbody>
-					{{/estacion}}
+					{{/bicicleta}}
 				</table>
-			
 			</section>
 		</div>
-    
+		<div class="en-linea">
+				<div class="transiciones">
+					<p>LISTADO DE TRANSICIONES DE ESTADO</p>
+				</div>
+		</div>
 </body>
 </html>

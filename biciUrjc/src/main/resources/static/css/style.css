@@ -241,7 +241,6 @@ body{
 
 /*GESTION DE ESTACIONES*/
 
-
 .mapa{
 	
 	display: block;
@@ -262,6 +261,7 @@ body{
 	
 	border: 2.25px solid black;
 	
+	
 	box-shadow: 6px 5px 10px rgb(180, 180, 180);
 }
 .dentro_parte p{
@@ -276,6 +276,7 @@ body{
 	width: 1000px;
 	background-color: white;
 	border: 2.25px solid black;
+	border-radius: 2em;
 	
 	display: block;
 	position: relative;
@@ -297,8 +298,36 @@ body{
     display:inline;
     position:relative;
 }
-.en-linea{
-	display: inline-block;
+
+
+/*  MODULO DE BICIS */
+
+.transiciones {
+	height: 400px;
+	width: 1000px;
+	background-color: white;
+	border: 2.25px solid black;
+	border-radius: 2em;
+	
+	display:inline;
+    position:relative;
+	
+	margin: 0px auto;
+	
+	float: left;
+	margin-top:3em;
+	margin-right:2em;
+	margin-left:18em;
+	text-align:center;
+	
+	box-shadow: 6px 5px 10px rgb(180, 180, 180);
+}
+.transiciones p{
+	color: black;
+	font-family: Gill Sans MT;
+	font-size:2em;
+    display:inline;
+    position:relative;
 }
 
 /* PAGINA DE FALLOS Y ERRORES */
