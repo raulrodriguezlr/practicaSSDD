@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import es.codeurjc.biciUrjc.model.Bicicleta;
 import es.codeurjc.biciUrjc.model.Usuario;
+import es.codeurjc.biciUrjc.model.estacionBicicletas;
 import es.codeurjc.biciUrjc.repository.RepoBicicletas;
 import es.codeurjc.biciUrjc.service.BicicletaService;
 
@@ -44,6 +45,18 @@ public class BicicletaController {
 			model.addAttribute("fallo","Fallo al mostrar los detalles de la bicicleta");
 			return "fallo";
 		}
+	}
+	
+	@GetMapping("/agregarBicicletas")
+	public String agregarBicicletas(Model model) {
+		return "agregarBicicleta";
+	}
+	
+	@GetMapping("/agregarBicicleta")
+	public String agregarBicicleta(Model model,@RequestParam String numeroSerie,@RequestParam String modelo) {
+		Bicicleta bici = new Bicicleta(numeroSerie, modelo);
+		biciService.save(bici);
+		return "redirect:/gestionBicicletas";
 	}
 	
 }

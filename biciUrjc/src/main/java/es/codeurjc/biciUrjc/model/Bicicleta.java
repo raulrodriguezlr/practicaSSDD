@@ -48,14 +48,24 @@ public class Bicicleta {
 		this.modelo=modelo;
 	}
 	
+	public void setEstacion(long estacion) {
+		this.estacion=estacion;
+	}
+	
 	public String getNumeroSerie() {
 		return this.numeroSerie;
 	}
+	
 	public String getEstado() {
 		return this.Estado;
 	}
+	
 	public String getModelo() {
 		return this.modelo;
+	}
+	
+	public long getEstacion() {
+		return this.estacion;
 	}
 
 }

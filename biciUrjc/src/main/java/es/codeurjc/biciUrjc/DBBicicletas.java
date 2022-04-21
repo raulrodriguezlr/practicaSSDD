@@ -28,8 +28,8 @@ public class DBBicicletas {
 	
 	public void userDB() {
 		BicicletasRepo.saveAll(Arrays.asList(
-			new Bicicleta("0o1p2q3r4s5t6u7v","MOUNTAIN"),
-			new Bicicleta("0a1b2c3d4e5f6g7h","BMX")//mirar por que sale un numero random en gestion de estaciones
+			new Bicicleta("0O1P2Q3R4S5T6U7V","MOUNTAIN"),
+			new Bicicleta("0A1B2C3D4E5F6G7H","BMX")//mirar por que sale un numero random en gestion de estaciones
 
 			));
 	}
