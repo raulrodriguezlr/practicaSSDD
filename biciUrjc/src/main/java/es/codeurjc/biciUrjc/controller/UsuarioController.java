@@ -22,12 +22,11 @@ public class UsuarioController {
 	@Autowired
 	private UserService Uservice;
 	
-
 	@GetMapping("/gestionUsuarios")
 	public String lists(Model model) {
 		List<Usuario> usuarios= userInterface.findAll();
 		model.addAttribute("usuario", usuarios);
-		return "modulo_gestion_usuarios";
+		return "Gestion_Usuarios/modulo_gestion_usuarios";
 	}
 	
 	@GetMapping("/gestionUsuarios/{id}")
@@ -37,7 +36,7 @@ public class UsuarioController {
 		if(user.isPresent()) {
 			Usuario usuario = user.get();
 			model.addAttribute("usuarios", usuario);
-			return "detallesUsuario";
+			return "Gestion_Usuarios/detallesUsuario";
 		}else {
 			model.addAttribute("fallo","Fallo al mostrar los detalles del usuarios");
 			return "fallo";
@@ -46,7 +45,7 @@ public class UsuarioController {
 	
 	@GetMapping("/agregarUsuarios")
 	public String agregarUsuario(Model model) {	
-		return "agregarUsuario";
+		return "Gestion_Usuarios/agregarUsuario";
 	}
 	@GetMapping("/agregarUsuario")
 	public String agregarUsuario(Model model,@RequestParam String nombre, @RequestParam String apellido, @RequestParam String contraseña) {
@@ -60,7 +59,7 @@ public class UsuarioController {
 		if(user.isPresent()) {
 			Usuario usuario = user.get();
 			model.addAttribute("Usuario", usuario);
-			return "editarUsuario";
+			return "Gestion_Usuarios/editarUsuario";
 		}else {
 			model.addAttribute("fallo","Fallo al editar el usuario");
 			return "fallo";

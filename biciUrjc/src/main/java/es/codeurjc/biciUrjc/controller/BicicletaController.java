@@ -40,7 +40,12 @@ public class BicicletaController {
 		if(bici.isPresent()) {
 			Bicicleta bicicleta = bici.get();
 			model.addAttribute("bicicleta", bicicleta);
-			return "detallesBicicleta";
+			if (bicicleta.getEstado().equals("Sin-Base")) {
+				return "detallesBicicletaSinBase";
+			}
+			else {
+				return "detallesBicicleta";
+			}
 		}else {
 			model.addAttribute("fallo","Fallo al mostrar los detalles de la bicicleta");
 			return "fallo";

@@ -28,7 +28,7 @@ public class EstacionBicicletasController {
 	public String lists(Model model) {
 		List<estacionBicicletas> estacion= estacionInterface.findAll();
 		model.addAttribute("estacion", estacion);
-		return "modulo_gestion_estacion_bicicletas";
+		return "Gestion_Estaciones/modulo_gestion_estacion_bicicletas";
 	}
 	
 	@GetMapping("/gestionEstaciones/{id}")
@@ -38,7 +38,7 @@ public class EstacionBicicletasController {
 		if(est.isPresent()) {
 			estacionBicicletas estacion = est.get();
 			model.addAttribute("estaciones", estacion);
-			return "detallesEstacion";
+			return "Gestion_Estaciones/detallesEstacion";
 		}else {
 			model.addAttribute("fallo","Fallo al mostrar los detalles de la estacion");
 			return "fallo";
@@ -47,7 +47,7 @@ public class EstacionBicicletasController {
 	
 	@GetMapping("/agregarEstaciones")
 	public String agregarEstaciones(Model model) {	
-		return "agregarEstacion";
+		return "Gestion_Estaciones/agregarEstacion";
 	}
 	
 	@GetMapping("/agregarEstacion")
@@ -63,7 +63,7 @@ public class EstacionBicicletasController {
 		if(est.isPresent()) {
 			estacionBicicletas estacion = est.get();
 			model.addAttribute("estacion", estacion);
-			return "editarEstacion";
+			return "Gestion_Estaciones/editarEstacion";
 		}else {
 			model.addAttribute("fallo","Fallo al editar las coordenadas");
 			return "fallo";
