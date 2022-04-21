@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<title>gestion_bicicletas</title>
+		
+		<!--css-->
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--bootstrap-->
+	   
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+<body>
+	<div id="header">
+		
+		<a href="/"  id="logo-img"><img class="ui image" src="/images/logo3.png"></a>
+		<p > GESTIÓN DE BICICLETAS Y SU CICLO DE VIDA </p >
+				
+	</div>
+
+
+	<div id="header-boton" >
+		<a href="/"  id="back-img"><img class="ui image" src="/images/back-arrow.png"></a>
+		<button type="button" class="btn-dtl" onclick="location.href='/agregarBicicletas'">Agregar Bicicleta</button>	
+
+
+
+	</div>
+		
+	<div>
+			<section>
+				<table class="table" >
+					<thead>
+						<tr >
+							<td id="tabla">NUMERO DE SERIE</td>						
+							<td id="tabla"> ESTADO</td>
+							<td id="tabla"> INFORMACIÓN</td>
+						</tr>
+					<thead>
+					{{#bicicleta}}
+					<tbody>
+							<td id ="fila_tabla">{{numeroSerie}} </td>
+							<td id ="fila_tabla">{{estado}}</td>
+							<td id ="fila_tabla">
+
+							<button type="button" class="btn-dtl" onclick="location.href='/gestionBicicletas/{{id}}'">Detalles</button>	
+
+							</td>
+						</tr>
+					</tbody>
+					{{/bicicleta}}
+				</table>
+			
+			</section>
+		</div>
+    
+</body>
+</html>

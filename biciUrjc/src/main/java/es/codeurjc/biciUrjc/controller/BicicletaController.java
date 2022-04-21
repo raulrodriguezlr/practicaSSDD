@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.codeurjc.biciUrjc.model.Bicicleta;
-import es.codeurjc.biciUrjc.model.Usuario;
 import es.codeurjc.biciUrjc.model.estacionBicicletas;
 import es.codeurjc.biciUrjc.repository.RepoBicicletas;
 import es.codeurjc.biciUrjc.service.BicicletaService;
+import es.codeurjc.biciUrjc.service.EstacionService;
 
 
 @Controller
@@ -24,13 +24,15 @@ public class BicicletaController {
 	private RepoBicicletas biciInterface;
 	@Autowired
 	private BicicletaService biciService;
+	@Autowired
+	private EstacionService estacionInterface;
 	
 
 	@GetMapping("/gestionBicicletas")
 	public String lists(Model model) {
 		List<Bicicleta> bicicletas= biciInterface.findAll();
 		model.addAttribute("bicicleta", bicicletas);
-		return "modulo_gestion_bicicletas";
+		return "Gestion_Bicicletas/modulo_gestion_bicicletas";
 	}
 	
 	@GetMapping("/gestionBicicletas/{id}")
@@ -41,10 +43,10 @@ public class BicicletaController {
 			Bicicleta bicicleta = bici.get();
 			model.addAttribute("bicicleta", bicicleta);
 			if (bicicleta.getEstado().equals("Sin-Base")) {
-				return "detallesBicicletaSinBase";
+				return "Gestion_Bicicletas/detallesBicicletaSinBase";
 			}
 			else {
-				return "detallesBicicleta";
+				return "Gestion_Bicicletas/detallesBicicleta";
 			}
 		}else {
 			model.addAttribute("fallo","Fallo al mostrar los detalles de la bicicleta");
@@ -54,7 +56,7 @@ public class BicicletaController {
 	
 	@GetMapping("/agregarBicicletas")
 	public String agregarBicicletas(Model model) {
-		return "agregarBicicleta";
+		return "Gestion_Bicicletas/agregarBicicleta";
 	}
 	
 	@GetMapping("/agregarBicicleta")
@@ -62,6 +64,22 @@ public class BicicletaController {
 		Bicicleta bici = new Bicicleta(numeroSerie, modelo);
 		biciService.save(bici);
 		return "redirect:/gestionBicicletas";
+	}
+	
+	@GetMapping("/asignarBase/{id}")
+	public String lists(Model model,@PathVariable (value="id")long id) {
+		Optional<Bicicleta> bici = biciService.findOne(id);
+		if(bici.isPresent()) {
+			Bicicleta bicicleta = bici.get();
+			List<estacionBicicletas> estaciones= estacionInterface.findAll();
+			model.addAttribute("estaciones",estaciones);
+			model.addAttribute("bicicleta",bicicleta);
+			return "Gestion_Bicicleta/asignarEstacion";
+		}
+		else {
+			model.addAttribute("fallo","Fallo al asginar base");
+			return "fallo";
+		}
 	}
 	
 }
