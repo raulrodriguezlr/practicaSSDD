@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.codeurjc.biciUrjc.model.Bicicleta;
 import es.codeurjc.biciUrjc.model.Usuario;
 import es.codeurjc.biciUrjc.model.estacionBicicletas;
 import es.codeurjc.biciUrjc.repository.RepoEstacionBicis;
+import es.codeurjc.biciUrjc.repository.RepoBicicletas;
 import es.codeurjc.biciUrjc.service.EstacionService;
 
 
@@ -23,6 +25,8 @@ public class EstacionBicicletasController {
 	private RepoEstacionBicis estacionInterface;
 	@Autowired
 	private EstacionService Estaservice;
+	@Autowired
+	private RepoBicicletas bicicletasInterface;
 	
 	@GetMapping("/gestionEstaciones")
 	public String lists(Model model) {
@@ -33,11 +37,17 @@ public class EstacionBicicletasController {
 	
 	@GetMapping("/gestionEstaciones/{id}")
 	public String detalleEstacion(Model model,@PathVariable (value="id")long id){ 
-		//lo que ponemos en el modelo es lo que queremos que nos llegue como respuesta
 		Optional<estacionBicicletas> est = Estaservice.findOne(id);
+		
 		if(est.isPresent()) {
 			estacionBicicletas estacion = est.get();
+			List<Bicicleta> bicicletas= bicicletasInterface.findAll();
+			estacion.agregarBici(bicicletas.get(0));
+			
+			List<Bicicleta> bicis = estacion.getBicis();
+			
 			model.addAttribute("estaciones", estacion);
+			model.addAttribute("bicicletas", bicis);
 			return "Gestion_Estaciones/detallesEstacion";
 		}else {
 			model.addAttribute("fallo","Fallo al mostrar los detalles de la estacion");

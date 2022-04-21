@@ -2,6 +2,8 @@ package es.codeurjc.biciUrjc.model;
 import java.net.URL;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.Entity;
@@ -23,6 +25,7 @@ public class estacionBicicletas {
 	public int capacidad;
 	public String estado;
 	public String fechaInstalacion;
+	public  ArrayList<Bicicleta> bicis;
 	
 	public estacionBicicletas() {}
 	
@@ -31,6 +34,7 @@ public class estacionBicicletas {
 		this.numeroSerie = numeroSerie; 
 		this.coordenadas=coordenadas;
 		this.capacidad=capacidad;
+		bicis=new ArrayList<Bicicleta>();
 
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -38,6 +42,19 @@ public class estacionBicicletas {
 		this.estado="ACTIVO";	
 	}
 	
+	public void agregarBici(Bicicleta bici){
+		try {
+			if(bicis.size()<capacidad) {
+				bicis.add(bici);
+			}
+		}catch(NullPointerException ex) {
+			System.out.println("NullPointerException");
+		}
+	}
+	public List<Bicicleta> getBicis(){
+		List<Bicicleta> bicicletas =(List<Bicicleta>) bicis;
+		return bicicletas;
+	}
 	
 	public void setNumeroSerie(int numSerie) {
 		this.numeroSerie=numSerie;
@@ -63,5 +80,6 @@ public class estacionBicicletas {
 	public String getEstado() {
 		return this.estado;
 	}
+	
 	
 }
