@@ -75,7 +75,7 @@ public class UsuarioController {
 			usuario = user.get();
 			String nombreNuevo = nombre.get();
 			Uservice.editarNombre(id, nombreNuevo);
-			return "redirect:/gestionUsuarios";
+			return "redirect:/gestionUsuarios/{id}";
 			
 		}
 		else {
@@ -92,7 +92,7 @@ public class UsuarioController {
 			usuario = user.get();
 			String apellidoNuevo = apellido.get();
 			Uservice.editarApellido(id, apellidoNuevo);
-			return "redirect:/gestionUsuarios";
+			return "redirect:/gestionUsuarios/gestionUsuarios/{id}";
 			
 		}
 		else {
@@ -109,7 +109,7 @@ public class UsuarioController {
 			usuario = user.get();
 			String contraseñaNuevo = contraseña.get();
 			Uservice.editarContraseña(id, contraseñaNuevo);
-			return "redirect:/gestionUsuarios";
+			return "redirect:/gestionUsuarios/{id}";
 			
 		}
 		else {

@@ -17,8 +17,13 @@
 		<div id="header">
 		
 		<a href="/"  id="logo-img"><img class="ui image" src="/images/logo3.png"></a>
-		<p > DETALLES DE USUARIOS </p >
+		<p > EDITAR USUARIOS </p >
 					
+		</div>
+		<div id="header-boton">
+		{{#Usuario}}
+			<a href="/gestionUsuarios/{{id}}"  id="back-img"><img class="ui image" src="/images/back-arrow.png"></a>
+		{{/Usuario}}
 		</div>
 		
 		<div id="tabla_editarUsuario">

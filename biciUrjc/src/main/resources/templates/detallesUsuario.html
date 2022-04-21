@@ -19,6 +19,11 @@
 		<p > DETALLES DE USUARIOS </p >
 				
 	</div>
+	<div id="header-boton">
+	
+			<a href="/gestionUsuarios"  id="back-img"><img class="ui image" src="/images/back-arrow.png"></a>
+
+	</div>
 	
 	<div class="listado_usuarios">
 			
@@ -31,6 +36,7 @@
 							<td id="tabla">FECHA DE ALTA</td>
 							<td id="tabla"> ESTADO</td>
 							<td id="tabla"> CONTRASEÑA</td>
+							<td id="tabla"> ACCIONES</td>
 						</tr>
 					<thead>
 					{{#usuarios}}
@@ -43,8 +49,7 @@
 							<td id ="fila_tabla">{{contraseña}}</td>
 							<td id ="fila_tabla">
 							<button type="button" class="btn-dtl" onclick="location.href='/gestionUsuarios/editar/{{id}}'">EDITAR</button>	
-							</td>
-							<td id ="fila_tabla">
+							
 							<button type="button" class="btn-dtl" onclick="location.href='/editarUsuario/baja/{{id}}'">Dar de baja</button>	
 							<button type="button" class="btn-dtl" onclick="location.href='/editarUsuario/alta/{{id}}'">Dar de alta</button>	
 							</td>
