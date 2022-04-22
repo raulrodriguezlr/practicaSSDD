@@ -93,7 +93,7 @@ public class BicicletaController {
 			estacionBicicletas estacion = est.get();
 			Bicicleta bicicleta = bici.get();
 			
-			// meter la bici en el array de la estacion
+			//estacion.agregarBici(bicicleta);
 			
 			biciService.editarBase(id_bici, id_estacion);
 			biciService.editarEstado(id_bici,"En-Base");
