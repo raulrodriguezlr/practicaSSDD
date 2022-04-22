@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Bicicleta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long id_b;
 	// el id nos servira para realizar todas las operaciones con las bicis pero no estara de cara al publico como los usuarios o estaciones
 	
 	public String numeroSerie;

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.codeurjc.biciUrjc.model.Bicicleta;
+import es.codeurjc.biciUrjc.model.Usuario;
 import es.codeurjc.biciUrjc.model.estacionBicicletas;
 import es.codeurjc.biciUrjc.repository.RepoBicicletas;
 import es.codeurjc.biciUrjc.service.BicicletaService;
@@ -25,6 +26,8 @@ public class BicicletaController {
 	@Autowired
 	private BicicletaService biciService;
 	@Autowired
+	private EstacionService estaService;
+	@Autowired
 	private EstacionService estacionInterface;
 	
 
@@ -35,8 +38,8 @@ public class BicicletaController {
 		return "Gestion_Bicicletas/modulo_gestion_bicicletas";
 	}
 	
-	@GetMapping("/gestionBicicletas/{id}")
-	public String detalleBicicleta(Model model,@PathVariable (value="id")long id){ 
+	@GetMapping("/gestionBicicletas/{id_b}")
+	public String detalleBicicleta(Model model,@PathVariable (value="id_b")long id){ 
 		//lo que ponemos en el modelo es lo que queremos que nos llegue como respuesta
 		Optional<Bicicleta> bici = biciService.findOne(id);
 		if(bici.isPresent()) {
@@ -66,15 +69,36 @@ public class BicicletaController {
 		return "redirect:/gestionBicicletas";
 	}
 	
-	@GetMapping("/asignarBase/{id}")
-	public String lists(Model model,@PathVariable (value="id")long id) {
+	@GetMapping("/gestionBicicleta/asignarBase/{id_b}")
+	public String AsignarBase(Model model,@PathVariable (value="id_b")long id) {
 		Optional<Bicicleta> bici = biciService.findOne(id);
 		if(bici.isPresent()) {
 			Bicicleta bicicleta = bici.get();
 			List<estacionBicicletas> estaciones= estacionInterface.findAll();
 			model.addAttribute("estaciones",estaciones);
 			model.addAttribute("bicicleta",bicicleta);
-			return "Gestion_Bicicleta/asignarEstacion";
+			return "Gestion_Bicicletas/asignarEstacion";
+		}
+		else {
+			model.addAttribute("fallo","Fallo al asginar base");
+			return "fallo";
+		}
+	}
+	
+	@GetMapping("/asignarEstacion/{id}/{id_b}")
+	public String AsignarEstacion(Model model,@PathVariable (value="id")long id_estacion,@PathVariable (value="id_b")long id_bici) {
+		Optional<estacionBicicletas> est = estaService.findOne(id_estacion);
+		Optional<Bicicleta> bici = biciService.findOne(id_bici);
+		if(est.isPresent() && bici.isPresent()) {
+			estacionBicicletas estacion = est.get();
+			Bicicleta bicicleta = bici.get();
+			
+			// meter la bici en el array de la estacion
+			
+			biciService.editarBase(id_bici, id_estacion);
+			biciService.editarEstado(id_bici,"En-Base");
+			
+			return "redirect:/gestionBicicletas";
 		}
 		else {
 			model.addAttribute("fallo","Fallo al asginar base");

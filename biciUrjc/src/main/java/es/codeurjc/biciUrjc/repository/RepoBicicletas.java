@@ -11,6 +11,11 @@ import es.codeurjc.biciUrjc.model.Bicicleta;
 
 @Transactional
 public interface RepoBicicletas  extends JpaRepository<Bicicleta, Long>{
-
+	@Modifying
+	   @Query(value = "update bicicleta set estacion = :estacion where id_b = :id_b",nativeQuery = true)
+	    void updateBaseById(@Param("id_b") long id, @Param("estacion") long estacion);
+	 	@Modifying
+		@Query(value = "update bicicleta set Estado = :Estado where id_b = :id_b",nativeQuery = true)
+	 	void updateEstadoById(@Param("id_b") long id, @Param("Estado") String Estado);
 }
 

@@ -36,10 +36,19 @@ public class BicicletaService {
 		return repository.findAll();
 	}
 	
+	public void editarBase(long id,long estacion) {
+		repository.updateBaseById(id, estacion);
+	}
+	
+	public void editarEstado(long id,String Estado) {
+		repository.updateEstadoById(id, Estado);
+	}
+	
 	public Bicicleta save (Bicicleta bici) {
 		Bicicleta BiciNueva = repository.save(bici);
 		return BiciNueva;
 	}
+	
 	public void delete(Long Id) {
 		repository.deleteById(Id);
 	}

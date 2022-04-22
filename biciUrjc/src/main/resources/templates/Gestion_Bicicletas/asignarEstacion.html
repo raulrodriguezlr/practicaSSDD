@@ -28,6 +28,7 @@
 							<td id="tabla">MODELO</td>
 							<td id="tabla"> FECHA DE ALTA</td>
 							<td id="tabla"> ESTADO</td>
+
 						</tr>
 					<thead>
 					{{#bicicleta}}
@@ -37,7 +38,7 @@
 							<td id ="fila_tabla">{{modelo}}</td>
 							<td id ="fila_tabla">{{fechaAlta}}</td>
 							<td id ="fila_tabla">{{estado}}</td>
-							<td id ="fila_tabla">
+
 							</td>
 						</tr>
 					</tbody>
@@ -45,10 +46,17 @@
 				</table>
 			</section>
 		</div>
+		<div id="header">
+			<p > ESTACIONES</p >		
+		</div>
 		<div class="estaciones_disponibles">
 			{{#estaciones}}
-				<div class="transiciones">
-					<p>{{numeroSerie}}</p>
+				<div class="estaciones">
+					<p>Nº {{numeroSerie}}</p>
+					<p> Capacidad: {{capacidad}} (cambiar a nº bicis)<p>
+					<p> Estado: {{estado}}<p>
+					<button type="button" class="btn-dtl" onclick="location.href='/asignarEstacion/{{id}}/{{id_b}}'">ASIGNAR</button type="button">
+					<button type="button" class="btn-dtl" onclick="location.href='/gestionEstaciones/{{id}}'">DETALLES</button type="button">
 				</div>
 			{{/estaciones}}
 		</div>

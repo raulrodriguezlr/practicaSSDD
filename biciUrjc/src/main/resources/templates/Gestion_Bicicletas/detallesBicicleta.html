@@ -29,6 +29,7 @@
 							<td id="tabla">MODELO</td>
 							<td id="tabla"> FECHA DE ALTA</td>
 							<td id="tabla"> ESTADO</td>
+							<td id="tabla"> BASE</td>
 						</tr>
 					<thead>
 					{{#bicicleta}}
@@ -38,8 +39,9 @@
 							<td id ="fila_tabla">{{modelo}}</td>
 							<td id ="fila_tabla">{{fechaAlta}}</td>
 							<td id ="fila_tabla">{{estado}}</td>
+							<td id ="fila_tabla">{{estacion}}</td>
 							<td id ="fila_tabla">
-							<button type="button" class="btn-dtl" onclick="location.href='/gestionBicicleta/baja/{{id}}'">Dar de baja</button>	
+							<button type="button" class="btn-dtl" onclick="location.href='/gestionBicicleta/baja/{{id_b}}'">Dar de baja</button>	
 
 							</td>
 						</tr>
@@ -48,10 +50,12 @@
 				</table>
 			</section>
 		</div>
+		{{#estaciones}}
 		<div class="en-linea">
 				<div class="transiciones">
-					<p>LISTADO DE TRANSICIONES DE ESTADO</p>
+					<p>{{numeroSerie}}</p>
 				</div>
 		</div>
+		{{/estaciones}}
 </body>
 </html>
