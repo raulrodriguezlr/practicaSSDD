@@ -42,7 +42,7 @@ public class EstacionBicicletasController {
 		if(est.isPresent()) {
 			estacionBicicletas estacion = est.get();
 			List<Bicicleta> bicicletas= bicicletasInterface.findAll();
-			estacion.agregarBici(bicicletas.get(0));
+		
 			
 			List<Bicicleta> bicis = estacion.getBicis();
 			

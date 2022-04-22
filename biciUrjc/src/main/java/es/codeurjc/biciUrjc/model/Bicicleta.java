@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -20,7 +21,8 @@ public class Bicicleta {
 	public String fechaAlta;
 	public String Estado;
 	
-	public long estacion; // estacion a la que pertenece
+	@OneToOne
+	public estacionBicicletas estacion; // estacion a la que pertenece
 	
 	
 	public Bicicleta() {}
@@ -48,7 +50,7 @@ public class Bicicleta {
 		this.modelo=modelo;
 	}
 	
-	public void setEstacion(long estacion) {
+	public void setEstacion(estacionBicicletas estacion) {
 		this.estacion=estacion;
 	}
 	
@@ -64,7 +66,7 @@ public class Bicicleta {
 		return this.modelo;
 	}
 	
-	public long getEstacion() {
+	public estacionBicicletas getEstacion() {
 		return this.estacion;
 	}
 

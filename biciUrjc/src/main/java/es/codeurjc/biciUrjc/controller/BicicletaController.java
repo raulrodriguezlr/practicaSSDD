@@ -40,7 +40,7 @@ public class BicicletaController {
 	
 	@GetMapping("/gestionBicicletas/{id_b}")
 	public String detalleBicicleta(Model model,@PathVariable (value="id_b")long id){ 
-		//lo que ponemos en el modelo es lo que queremos que nos llegue como respuesta
+		
 		Optional<Bicicleta> bici = biciService.findOne(id);
 		if(bici.isPresent()) {
 			Bicicleta bicicleta = bici.get();
@@ -92,10 +92,8 @@ public class BicicletaController {
 		if(est.isPresent() && bici.isPresent()) {
 			estacionBicicletas estacion = est.get();
 			Bicicleta bicicleta = bici.get();
-			
-			//estacion.agregarBici(bicicleta);
-			
-			biciService.editarBase(id_bici, id_estacion);
+			bicicleta.setEstacion(estacion);
+			estacion.agregarBici(bicicleta);
 			biciService.editarEstado(id_bici,"En-Base");
 			
 			return "redirect:/gestionBicicletas";

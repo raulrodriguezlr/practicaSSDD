@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -25,7 +26,8 @@ public class estacionBicicletas {
 	public int capacidad;
 	public String estado;
 	public String fechaInstalacion;
-	public  ArrayList<Bicicleta> bicis;
+	@OneToMany
+	public  List<Bicicleta> bicis;
 	
 	public estacionBicicletas() {}
 	
