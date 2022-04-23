@@ -1,5 +1,6 @@
 package es.codeurjc.biciUrjc.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +49,9 @@ public class BicicletaController {
 			if (bicicleta.getEstado().equals("Sin-Base")) {
 				return "Gestion_Bicicletas/detallesBicicletaSinBase";
 			}
+			else if (bicicleta.getEstado().equals("Baja")) {
+				return "Gestion_Bicicletas/detallesBicicletaBaja";
+			}
 			else {
 				return "Gestion_Bicicletas/detallesBicicleta";
 			}
@@ -75,7 +79,18 @@ public class BicicletaController {
 		if(bici.isPresent()) {
 			Bicicleta bicicleta = bici.get();
 			List<estacionBicicletas> estaciones= estacionInterface.findAll();
-			model.addAttribute("estaciones",estaciones);
+			List<estacionBicicletas> estaciones_act= new ArrayList<estacionBicicletas>();
+			List<estacionBicicletas> estaciones_inact= new ArrayList<estacionBicicletas>();
+			for(int i=0; i<estaciones.size(); i++) {
+				estacionBicicletas estacion = estaciones.get(i);
+				if (estacion.estacionLlena() || estacion.getEstado()=="INACTIVO") 
+					estaciones_inact.add(estaciones.get(i));
+				else
+					estaciones_act.add(estaciones.get(i));
+			}
+			
+			model.addAttribute("estaciones_act",estaciones_act);
+			model.addAttribute("estaciones_inact",estaciones_inact);
 			model.addAttribute("bicicleta",bicicleta);
 			return "Gestion_Bicicletas/asignarEstacion";
 		}
@@ -96,6 +111,9 @@ public class BicicletaController {
 			estacion.agregarBici(bicicleta);
 			biciService.editarEstado(id_bici,"En-Base");
 			
+			if(estacion.estacionLlena())
+				estaService.editarActivo(id_estacion,"INACTIVO");
+			
 			return "redirect:/gestionBicicletas";
 		}
 		else {
@@ -104,4 +122,22 @@ public class BicicletaController {
 		}
 	}
 	
+	@GetMapping("/gestionBicicleta/baja/{id}/{id_b}")
+	public String BajaEstacion(Model model,@PathVariable (value="id")long id_estacion,@PathVariable (value="id_b")long id_bici) {
+		Optional<estacionBicicletas> est = estaService.findOne(id_estacion);
+		Optional<Bicicleta> bici = biciService.findOne(id_bici);
+		if(est.isPresent() && bici.isPresent()) {
+			Bicicleta bicicleta = bici.get();
+			estacionBicicletas estacion = est.get();
+			estacion.eliminarBici(bicicleta);
+			estaService.editarActivo(id_estacion,"ACTIVO");
+			biciService.editarEstado(id_bici,"Baja");
+			bicicleta.setEstacion(null);
+			return "redirect:/gestionBicicletas";
+		}
+		else {
+			model.addAttribute("fallo","Fallo al asginar base");
+			return "fallo";
+		}
+	}
 }

@@ -19,6 +19,9 @@
 		<p > DETALLES DE LA BICICLETA</p >
 				
 	</div>
+	<div id="header-boton" >
+		<a href="/gestionBicicletas"  id="back-img"><img class="ui image" src="/images/back-arrow.png"></a>
+	</div>
 	
 	<div>
 			<section>
@@ -38,10 +41,6 @@
 							<td id ="fila_tabla">{{modelo}}</td>
 							<td id ="fila_tabla">{{fechaAlta}}</td>
 							<td id ="fila_tabla">{{estado}}</td>
-							<td id ="fila_tabla">
-							<button type="button" class="btn-dtl" onclick="location.href='/gestionBicicleta/asignarBase/{{id_b}}'">Asignar Base</button>
-							<td id ="fila_tabla">
-							<button type="button" class="btn-dtl" onclick="location.href='/gestionBicicleta/baja/{{id_b}}'">Dar de baja</button>	
 
 							</td>
 						</tr>
@@ -56,6 +55,18 @@
 					<div class="estados">
 						<br>
 						<p> SIN BASE<p>
+						<br>
+						<p> &#8595 </p>
+						<br>
+						{{#bicicleta}}
+						{{#estacion}}
+						<p> EN BASE (ID: {{numeroSerie}})<p>
+						<br>
+						{{/estacion}}
+						{{/bicicleta}}
+						<p> &#8595 </p>
+						<br>
+						<p> BAJA<p>
 					</div class="estados">
 				</div>
 		</div>

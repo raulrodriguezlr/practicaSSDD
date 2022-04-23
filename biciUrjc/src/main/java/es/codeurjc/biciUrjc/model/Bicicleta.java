@@ -1,6 +1,8 @@
 package es.codeurjc.biciUrjc.model;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,7 +39,8 @@ public class Bicicleta {
 		this.Estado="Sin-Base";
 				
 	}
-	
+
+
 	public void setNumeroSerie(String numeroSerie) {
 		this.numeroSerie=numeroSerie;
 	}

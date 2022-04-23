@@ -19,46 +19,38 @@
 		<p > ASIGNAR ESTACIÓN</p >
 				
 	</div>
-	<div>
-			<section>
-				<table class="table" >
-					<thead>
-						<tr >
-							<td id="tabla">NUMERO DE SERIE</td>
-							<td id="tabla">MODELO</td>
-							<td id="tabla"> FECHA DE ALTA</td>
-							<td id="tabla"> ESTADO</td>
 
-						</tr>
-					<thead>
-					{{#bicicleta}}
-					<tbody>
-						<tr>
-							<td id ="fila_tabla">{{numeroSerie}} </td>
-							<td id ="fila_tabla">{{modelo}}</td>
-							<td id ="fila_tabla">{{fechaAlta}}</td>
-							<td id ="fila_tabla">{{estado}}</td>
-
-							</td>
-						</tr>
-					</tbody>
-					{{/bicicleta}}
-				</table>
-			</section>
-		</div>
-		<div id="header">
-			<p > ESTACIONES</p >		
-		</div>
 		<div class="estaciones_disponibles">
-			{{#estaciones}}
+			{{#estaciones_act}}
 				<div class="estaciones">
-					<p>Nº {{numeroSerie}}</p>
-					<p> Capacidad: {{capacidad}} (cambiar a nº bicis)<p>
-					<p> Estado: {{estado}}<p>
-					<button type="button" class="btn-dtl" onclick="location.href='/asignarEstacion/{{id}}/{{id_b}}'">ASIGNAR</button type="button">
-					<button type="button" class="btn-dtl" onclick="location.href='/gestionEstaciones/{{id}}'">DETALLES</button type="button">
+					<div class="cabe">
+						<p>ESTACIÓN: {{numeroSerie}}</p><br>
+						<a href="/gestionEstaciones/{{id}}"  id="mapa-img"><img class="ui image" src="/images/mapa.png"></a>
+					</div class="cabe">
+					<div class="cuerp">
+						<p> Capacidad: {{capacidad}}<p>
+						<br>
+						<p> Estado: {{estado}}<p>
+						<br>
+						<button type="button" class="btn-dtl" onclick="location.href='/asignarEstacion/{{id}}/{{id_b}}'">ASIGNAR</button type="button">
+					</div>
 				</div>
-			{{/estaciones}}
+			{{/estaciones_act}}
+			{{#estaciones_inact}}
+				<div class="estaciones">
+					<div class="cabe">
+						<p>ESTACIÓN: {{numeroSerie}}</p><br>
+						<a href="/gestionEstaciones/{{id}}"  id="mapa-img"><img class="ui image" src="/images/mapa.png"></a>
+					</div class="cabe">
+					<div class="cuerp">
+						<p> Capacidad: {{capacidad}}<p>
+						<br>
+						<p> Estado: {{estado}}<p>
+						<br>
+						<button type="button" class="btn-off">ASIGNAR</button type="button">
+					</div>
+				</div>
+			{{/estaciones_inact}}
 		</div>
 </body>
 </html>

@@ -58,6 +58,18 @@ public class estacionBicicletas {
 		return bicicletas;
 	}
 	
+	public void eliminarBici(Bicicleta bici) {
+		
+		try {
+			int posicion = bicis.indexOf(bici);
+			if (posicion!=-1) {
+				bicis.remove(posicion);
+			}
+		}catch(NullPointerException ex) {
+			System.out.println("NullPointerException");
+		}
+	}
+	
 	public void setNumeroSerie(int numSerie) {
 		this.numeroSerie=numSerie;
 	}
@@ -83,5 +95,8 @@ public class estacionBicicletas {
 		return this.estado;
 	}
 	
+	public boolean estacionLlena() {
+		return capacidad==bicis.size();
+	}
 	
 }

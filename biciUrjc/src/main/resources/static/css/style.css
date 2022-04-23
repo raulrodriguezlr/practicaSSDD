@@ -109,13 +109,6 @@ body{
     width: 15%;
     margin: auto;
     padding-top: 1px;
-    background-color: rgb(255,255, 255);   
-}
-
-#logo-img img {
-    width: 15%;
-    margin: auto;
-    padding-top: 1px;
     background-color: rgb(0, 0, 0);   
 }
 #header-boton{
@@ -289,7 +282,7 @@ body{
 	width: 400px;
 	background: white;
 	
-	border: 2.25px solid black;
+	border: 1.5px solid black;
 	
 	
 	box-shadow: 6px 5px 10px rgb(180, 180, 180);
@@ -301,11 +294,11 @@ body{
     display:inline;
     position:relative;
 }
+
 .detalles_bici {
-	height: 400px;
 	width: 1000px;
 	background-color: white;
-	border: 2.25px solid black;
+	border: 1.5px solid black;
 	border-radius: 2em;
 	
 	display: block;
@@ -317,6 +310,7 @@ body{
 	margin-top:3em;
 	margin-right:2em;
 	margin-left:2em;
+	margin-bottom: 2em;
 	text-align:center;
 	
 	box-shadow: 6px 5px 10px rgb(180, 180, 180);
@@ -329,6 +323,12 @@ body{
     position:relative;
 }
 
+#bici-img img{
+	width: 20px;
+	height: 20px;
+    margin: auto;
+    padding-top: 1px;
+}
 
 /* DENTRO DEL MODULO DE BICIS */
 
@@ -336,7 +336,6 @@ body{
 	height: 400px;
 	width: 1000px;
 	background-color: white;
-	border: 2.25px solid black;
 	border-radius: 2em;
 	
 	display:inline;
@@ -348,23 +347,36 @@ body{
 	margin-top:3em;
 	margin-right:2em;
 	margin-left:18em;
+	margin-bottom: 2em;
 	text-align:center;
 	
-	box-shadow: 6px 5px 10px rgb(180, 180, 180);
+	border-top: 2.25px solid #CB0017;
+	
+	box-shadow: 0px 0px 15px rgb(180, 180, 180);
 }
 .transiciones p{
-	color: black;
+	color: #CB0017;
 	font-family: Gill Sans MT;
 	font-size:2em;
     display:inline;
     position:relative;
 }
 
+.estados p{
+	color: rgb(80, 80, 80);
+	font-family: Gill Sans MT;
+	font-size:1.4em;
+	
+	line-height: 3.25em;
+}
+
 .estaciones{
 	height: 300px;
 	width: 300px;
 	background-color: white;
-	border: 2.25px solid black;
+	
+	border-top: 2.5px solid black;
+	border-bottom: 2.5px solid black;
 	border-radius: 2em;
 	
 	display:inline;
@@ -378,10 +390,57 @@ body{
 	margin-left:2em;
 	text-align:center;
 	
-	box-shadow: 6px 5px 10px rgb(180, 180, 180);
+	box-shadow: 0px 0px 20px rgb(120, 120, 120);
 }
+
+.estaciones p{
+	color : rgb(70, 70, 70);
+	font-family: Gill Sans MT;
+	font-size:1.5em;
+    display:inline;
+    position:relative;
+    line-height:80%;
+	
+	margin-top: 2em;
+	
+	line-height: 1em;
+}
+.cabe{
+	margin-top:1em;
+	margin-bottom: 4em;
+}
+.cabe p{
+	color: black;
+	font-family: Gill Sans MT;
+	font-size:2em;
+}
+
+.cuerp p{
+	line-height: 1.5em;
+}
+
+#mapa-img img{
+	width: 15%;
+    margin: auto;
+    padding-top: 1px;
+}
+
 #boton_estacion{
 	bottom: -5em;
+}
+
+.btn-off{
+	height: 3em;
+    width:	6em;
+    font-family:Gill Sans MT;
+    font-size:1em;
+    color: ghostwhite;
+    background-color: rgb(70,70,70);
+    
+    margin-top:0em;
+    
+    display: inline-table;
+    text-align:center;
 }
 
 /* PAGINA DE FALLOS Y ERRORES */
