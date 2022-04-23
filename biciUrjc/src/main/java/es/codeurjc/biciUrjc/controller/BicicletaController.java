@@ -108,7 +108,6 @@ public class BicicletaController {
 			estacionBicicletas estacion = est.get();
 			biciService.establecerEstacion(id_bici,estacion);
 			biciService.editarEstado(id_bici,"En-Base");
-			
 			return "redirect:/gestionBicicletas";
 		}
 		else {
