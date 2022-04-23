@@ -106,9 +106,7 @@ public class BicicletaController {
 		Optional<Bicicleta> bici = biciService.findOne(id_bici);
 		if(est.isPresent() && bici.isPresent()) {
 			estacionBicicletas estacion = est.get();
-			Bicicleta bicicleta = bici.get();
-			bicicleta.setEstacion(estacion);
-			estacion.agregarBici(bicicleta);
+			biciService.establecerEstacion(id_bici,estacion);
 			biciService.editarEstado(id_bici,"En-Base");
 			
 			return "redirect:/gestionBicicletas";

@@ -49,4 +49,9 @@ public class BicicletaService {
 	public void delete(Long Id) {
 		repository.deleteById(Id);
 	}
+	public void establecerEstacion (long id,estacionBicicletas estacion) {
+		repository.updateEstacionById(id, estacion);
+	
+		
+	}
 }

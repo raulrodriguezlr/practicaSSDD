@@ -26,7 +26,7 @@ public class estacionBicicletas {
 	public int capacidad;
 	public String estado;
 	public String fechaInstalacion;
-	@OneToMany
+	@OneToMany (mappedBy="estacion")
 	public  List<Bicicleta> bicis;
 	
 	public estacionBicicletas() {}
@@ -95,6 +95,9 @@ public class estacionBicicletas {
 	}
 	public String getEstado() {
 		return this.estado;
+	}
+	public long getId() {
+		return id;
 	}
 	
 	public boolean estacionLlena() {

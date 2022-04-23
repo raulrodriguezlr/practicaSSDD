@@ -40,7 +40,19 @@ public class Bicicleta {
 		this.Estado="Sin-Base";
 				
 	}
+	public Bicicleta(String numeroSerie, String modelo,String estado) {
+		super();
+		this.modelo = modelo;
+		this.numeroSerie=numeroSerie;
 
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		this.fechaAlta = dtf.format(LocalDateTime.now());
+		this.Estado=estado;
+				
+	}
+	public void setEstacion(estacionBicicletas estacion) {
+		this.estacion=estacion;
+	}
 
 	public void setNumeroSerie(String numeroSerie) {
 		this.numeroSerie=numeroSerie;
@@ -54,9 +66,7 @@ public class Bicicleta {
 		this.modelo=modelo;
 	}
 	
-	public void setEstacion(estacionBicicletas estacion) {
-		this.estacion=estacion;
-	}
+	
 	
 	public long getId() {
 		return id_b;
