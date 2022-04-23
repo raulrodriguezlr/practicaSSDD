@@ -25,7 +25,10 @@ public class DBUserInitializer {
 	public void userDB() {
 		UserRepo.saveAll(Arrays.asList(
 			new Usuario("Raul"," Rodriguez", "Qwerty123456"),
-			new Usuario("Daniel"," Requena", "123456Qwerty")
+			new Usuario("Daniel"," Requena", "123456Qwerty"),
+			new Usuario("David"," Gomez", "SSDD2021/2022"),
+			new Usuario("Oscar"," Soto", "SSDDApoyo2021/2022"),
+			new Usuario("alonso"," Vazquez", ".-SSDD.-")
 			));
 	}
 	
