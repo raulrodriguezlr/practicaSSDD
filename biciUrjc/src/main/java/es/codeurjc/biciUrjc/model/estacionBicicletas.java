@@ -54,12 +54,10 @@ public class estacionBicicletas {
 		}
 	}
 	public List<Bicicleta> getBicis(){
-		List<Bicicleta> bicicletas =(List<Bicicleta>) bicis;
-		return bicicletas;
+		return bicis;
 	}
 	
 	public void eliminarBici(Bicicleta bici) {
-		
 		try {
 			int posicion = bicis.indexOf(bici);
 			if (posicion!=-1) {
@@ -68,6 +66,10 @@ public class estacionBicicletas {
 		}catch(NullPointerException ex) {
 			System.out.println("NullPointerException");
 		}
+	}
+	
+	public void eliminarTodas() {
+		bicis.clear();
 	}
 	
 	public void setNumeroSerie(int numSerie) {
@@ -97,6 +99,10 @@ public class estacionBicicletas {
 	
 	public boolean estacionLlena() {
 		return capacidad==bicis.size();
+	}
+	
+	public boolean estacionVacia() {
+		return bicis.size()==0;
 	}
 	
 }

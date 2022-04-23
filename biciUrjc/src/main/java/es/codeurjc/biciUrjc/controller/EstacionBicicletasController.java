@@ -15,6 +15,7 @@ import es.codeurjc.biciUrjc.model.Usuario;
 import es.codeurjc.biciUrjc.model.estacionBicicletas;
 import es.codeurjc.biciUrjc.repository.RepoEstacionBicis;
 import es.codeurjc.biciUrjc.repository.RepoBicicletas;
+import es.codeurjc.biciUrjc.service.BicicletaService;
 import es.codeurjc.biciUrjc.service.EstacionService;
 
 
@@ -27,6 +28,8 @@ public class EstacionBicicletasController {
 	private EstacionService Estaservice;
 	@Autowired
 	private RepoBicicletas bicicletasInterface;
+	@Autowired
+	private BicicletaService biciService;
 	
 	@GetMapping("/gestionEstaciones")
 	public String lists(Model model) {
@@ -101,6 +104,16 @@ public class EstacionBicicletasController {
 		if(est.isPresent()) {
 			estacion = est.get();
 			Estaservice.editarActivo(id,"INACTIVO");
+			
+			// dejar a la bicis SIN BASE 
+			List<Bicicleta> bicis = estacion.getBicis();
+			while(!estacion.estacionVacia()) {
+				Bicicleta bicicleta = bicis.get(0);
+				estacion.eliminarBici(bicicleta); // eliminamos la bici del array de bicis de la estacion
+				biciService.editarEstado(bicicleta.getId(),"Sin-Base"); // asignamos a la bici Sin-Base
+			}
+			
+			
 			return "redirect:/gestionEstaciones";
 		}
 		else {

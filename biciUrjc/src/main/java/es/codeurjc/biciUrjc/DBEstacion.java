@@ -26,8 +26,8 @@ public class DBEstacion {
 	public void userDB() {
 		EstacionRepo.saveAll(Arrays.asList(
 			new estacionBicicletas(001,"25.0N,90E", 5),
-			new estacionBicicletas(0345,"34.0N,69E", 10)//mirar por que sale un numero random en gestion de estaciones
-
+			new estacionBicicletas(0345,"34.0N,69E", 10),//mirar por que sale un numero random en gestion de estaciones
+			new estacionBicicletas(0777,"29.5N,33E", 5)
 			));
 	}
 	

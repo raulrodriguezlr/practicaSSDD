@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import es.codeurjc.biciUrjc.model.Bicicleta;
+import es.codeurjc.biciUrjc.model.estacionBicicletas;
 import es.codeurjc.biciUrjc.repository.RepoBicicletas;
 
 
@@ -35,9 +36,7 @@ public class BicicletaService {
 	public List<Bicicleta> findAll() {
 		return repository.findAll();
 	}
-	
-	
-	
+
 	public void editarEstado(long id,String Estado) {
 		repository.updateEstadoById(id, Estado);
 	}

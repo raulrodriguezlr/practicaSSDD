@@ -10,12 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import es.codeurjc.biciUrjc.service.BicicletaService;
+
 
 @Entity
 public class Bicicleta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id_b;
+	public long id_b;
 	// el id nos servira para realizar todas las operaciones con las bicis pero no estara de cara al publico como los usuarios o estaciones
 	
 	public String numeroSerie;
@@ -25,7 +27,6 @@ public class Bicicleta {
 	
 	@OneToOne
 	public estacionBicicletas estacion; // estacion a la que pertenece
-	
 	
 	public Bicicleta() {}
 	
@@ -55,6 +56,10 @@ public class Bicicleta {
 	
 	public void setEstacion(estacionBicicletas estacion) {
 		this.estacion=estacion;
+	}
+	
+	public long getId() {
+		return id_b;
 	}
 	
 	public String getNumeroSerie() {

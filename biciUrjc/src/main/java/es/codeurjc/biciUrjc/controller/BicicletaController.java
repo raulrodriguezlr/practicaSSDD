@@ -111,9 +111,6 @@ public class BicicletaController {
 			estacion.agregarBici(bicicleta);
 			biciService.editarEstado(id_bici,"En-Base");
 			
-			if(estacion.estacionLlena())
-				estaService.editarActivo(id_estacion,"INACTIVO");
-			
 			return "redirect:/gestionBicicletas";
 		}
 		else {
