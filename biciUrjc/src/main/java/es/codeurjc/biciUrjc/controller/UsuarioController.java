@@ -22,6 +22,7 @@ public class UsuarioController {
 	@Autowired
 	private UserService Uservice;
 	
+	// Menu principal del modulo de gestion de estaciones
 	@GetMapping("/gestionUsuarios")
 	public String lists(Model model) {
 		List<Usuario> usuarios= userInterface.findAll();
@@ -29,6 +30,7 @@ public class UsuarioController {
 		return "Gestion_Usuarios/modulo_gestion_usuarios";
 	}
 	
+	// Mostrar detalles de un usuario
 	@GetMapping("/gestionUsuarios/{id}")
 	public String detalleUsuario(Model model,@PathVariable (value="id")long id){ 
 		//lo que ponemos en el modelo es lo que queremos que nos llegue como respuesta
@@ -43,16 +45,21 @@ public class UsuarioController {
 		}
 	}
 	
+	// Menu de agregar usuario
 	@GetMapping("/agregarUsuarios")
 	public String agregarUsuario(Model model) {	
 		return "Gestion_Usuarios/agregarUsuario";
 	}
+	
+	// Agregar usuario
 	@GetMapping("/agregarUsuario")
 	public String agregarUsuario(Model model,@RequestParam String nombre, @RequestParam String apellido, @RequestParam String contraseña) {
 		Usuario user = new Usuario(nombre,apellido,contraseña);
 		Uservice.save(user);
 		return "redirect:/gestionUsuarios";
 	}
+	
+	// Menu para editar usuario
 	@GetMapping("/gestionUsuarios/editar/{id}")
 	public String editarUsuarios(Model model,@PathVariable (value="id")long id){ 
 		Optional<Usuario> user = Uservice.findOne(id);
@@ -66,16 +73,14 @@ public class UsuarioController {
 		}
 	}
 	
+	// Editar nombre
 	@GetMapping("/editarUsuario/nombre/{id}")
 	public String editarNombre (Model model,@PathVariable (value="id")long id,@RequestParam Optional<String> nombre){
 		Optional<Usuario> user = Uservice.findOne(id);
-		Usuario usuario;
 		if(user.isPresent()) {
-			usuario = user.get();
 			String nombreNuevo = nombre.get();
 			Uservice.editarNombre(id, nombreNuevo);
 			return "redirect:/gestionUsuarios/{id}";
-			
 		}
 		else {
 			model.addAttribute("fallo","Fallo al cambiar el nombre");
@@ -83,15 +88,15 @@ public class UsuarioController {
 		}
 		
 	}
+	
+	// Editar apellido
 	@GetMapping("/editarUsuario/apellido/{id}")
 	public String editarApellido (Model model,@PathVariable (value="id")long id,@RequestParam Optional<String> apellido){
 		Optional<Usuario> user = Uservice.findOne(id);
-		Usuario usuario;
 		if(user.isPresent()) {
-			usuario = user.get();
 			String apellidoNuevo = apellido.get();
 			Uservice.editarApellido(id, apellidoNuevo);
-			return "redirect:/gestionUsuarios/gestionUsuarios/{id}";
+			return "redirect:/gestionUsuarios/{id}";
 			
 		}
 		else {
@@ -100,12 +105,12 @@ public class UsuarioController {
 		}
 		
 	}
+	
+	// Editar contraseña
 	@GetMapping("/editarUsuario/contraseña/{id}")
 	public String editarContraseña (Model model,@PathVariable (value="id")long id,@RequestParam Optional<String> contraseña){
 		Optional<Usuario> user = Uservice.findOne(id);
-		Usuario usuario;
 		if(user.isPresent()) {
-			usuario = user.get();
 			String contraseñaNuevo = contraseña.get();
 			Uservice.editarContraseña(id, contraseñaNuevo);
 			return "redirect:/gestionUsuarios/{id}";
@@ -117,13 +122,12 @@ public class UsuarioController {
 		}
 		
 	}
+	
+	// Dar de baja a un usuario
 	@GetMapping("/editarUsuario/baja/{id}")
 	public String editarInactivo (Model model,@PathVariable (value="id")long id){
 		Optional<Usuario> user = Uservice.findOne(id);
-		Usuario usuario;
-		if(user.isPresent()) {
-			usuario = user.get();
-			
+		if(user.isPresent()) {		
 			Uservice.editarActivo(id, "INACTIVO");
 			return "redirect:/gestionUsuarios";
 			
@@ -134,22 +138,19 @@ public class UsuarioController {
 		}
 		
 	}
+	
+	// Dar de alta a un usuario
 	@GetMapping("/editarUsuario/alta/{id}")
 	public String editarActivo (Model model,@PathVariable (value="id")long id){
 		Optional<Usuario> user = Uservice.findOne(id);
-		Usuario usuario;
 		if(user.isPresent()) {
-			usuario = user.get();
-			
 			Uservice.editarActivo(id, "ACTIVO");
 			return "redirect:/gestionUsuarios";
-			
 		}
 		else {
 			model.addAttribute("fallo","Fallo al cambiar el estado");
 			return  "fallo";
 		}
-		
 	}
 	
 }

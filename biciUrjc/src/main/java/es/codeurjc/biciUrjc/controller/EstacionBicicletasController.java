@@ -31,6 +31,7 @@ public class EstacionBicicletasController {
 	@Autowired
 	private BicicletaService biciService;
 	
+	// Menu principal del modulo de gestion de estaciones
 	@GetMapping("/gestionEstaciones")
 	public String lists(Model model) {
 		List<estacionBicicletas> estacion= estacionInterface.findAll();
@@ -38,17 +39,14 @@ public class EstacionBicicletasController {
 		return "Gestion_Estaciones/modulo_gestion_estacion_bicicletas";
 	}
 	
+	// Obtener detalles de cada estacion
 	@GetMapping("/gestionEstaciones/{id}")
 	public String detalleEstacion(Model model,@PathVariable (value="id")long id){ 
-		Optional<estacionBicicletas> est = Estaservice.findOne(id);
-		
+		Optional<estacionBicicletas> est = Estaservice.findOne(id);	
 		if(est.isPresent()) {
 			estacionBicicletas estacion = est.get();
 			List<Bicicleta> bicicletas= bicicletasInterface.findAll();
-		
-			
-			List<Bicicleta> bicis = estacion.getBicis();
-			
+			List<Bicicleta> bicis = estacion.getBicis();		
 			model.addAttribute("estaciones", estacion);
 			model.addAttribute("bicicletas", bicis);
 			return "Gestion_Estaciones/detallesEstacion";
@@ -58,11 +56,13 @@ public class EstacionBicicletasController {
 		}
 	}
 	
+	// Menu de agregar una estacion
 	@GetMapping("/agregarEstaciones")
 	public String agregarEstaciones(Model model) {	
 		return "Gestion_Estaciones/agregarEstacion";
 	}
 	
+	// Agregar estacion
 	@GetMapping("/agregarEstacion")
 	public String agregarEstacion(Model model,@RequestParam int numeroSerie, @RequestParam String coordenadas, @RequestParam int capacidad) {
 		estacionBicicletas est = new estacionBicicletas(numeroSerie,coordenadas,capacidad);
@@ -70,6 +70,7 @@ public class EstacionBicicletasController {
 		return "redirect:/gestionEstaciones";
 	}
 	
+	// Menu para editar una estacion
 	@GetMapping("/gestionEstacion/editar/{id}")
 	public String editarEstacion(Model model,@PathVariable (value="id")long id){ 
 		Optional<estacionBicicletas> est = Estaservice.findOne(id);
@@ -82,6 +83,8 @@ public class EstacionBicicletasController {
 			return "fallo";
 		}
 	}
+	
+	// Editar coordenadas
 	@GetMapping("/editarEstacion/coordenadas/{id}")
 	public String editarCoordenadas(Model model,@PathVariable (value="id")long id,@RequestParam Optional<String> coordenadas){
 		Optional<estacionBicicletas> est = Estaservice.findOne(id);
@@ -97,6 +100,8 @@ public class EstacionBicicletasController {
 			return  "fallo";
 		}
 	}
+	
+	// Dar de baja una estacion eliminando todas sus bicis 
 	@GetMapping("/gestionEstacion/baja/{id}")
 	public String DarDeBajaEstacion(Model model,@PathVariable (value="id")long id) {
 		Optional<estacionBicicletas> est = Estaservice.findOne(id);
@@ -107,13 +112,11 @@ public class EstacionBicicletasController {
 			
 			// dejar a la bicis SIN BASE 
 			List<Bicicleta> bicis = estacion.getBicis();
-			while(!estacion.estacionVacia()) {
-				Bicicleta bicicleta = bicis.get(0);
-				estacion.eliminarBici(bicicleta); // eliminamos la bici del array de bicis de la estacion
+			for(int i=0; i<bicis.size(); i++) {
+				Bicicleta bicicleta = bicis.get(i);
+				biciService.establecerEstacion(bicicleta.getId(), null); // eliminamos la bici del array de bicis de la estacion
 				biciService.editarEstado(bicicleta.getId(),"Sin-Base"); // asignamos a la bici Sin-Base
-			}
-			
-			
+			}		
 			return "redirect:/gestionEstaciones";
 		}
 		else {
@@ -121,6 +124,8 @@ public class EstacionBicicletasController {
 			return  "fallo";
 		}
 	}
+	
+	// Dar de alta una estacion
 	@GetMapping("/gestionEstacion/alta/{id}")
 	public String DarDeAltaEstacion(Model model,@PathVariable (value="id")long id) {
 		Optional<estacionBicicletas> est = Estaservice.findOne(id);

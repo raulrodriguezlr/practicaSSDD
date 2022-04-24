@@ -36,6 +36,21 @@
 					</div>
 				</div>
 			{{/estaciones_act}}
+			{{#estaciones_act_llena}}
+				<div class="estaciones">
+					<div class="cabe">
+						<p>ESTACIÓN: {{numeroSerie}}</p><br>
+						<a href="/gestionEstaciones/{{id}}"  id="mapa-img"><img class="ui image" src="/images/mapa.png"></a>
+					</div class="cabe">
+					<div class="cuerp">
+						<p> Capacidad: {{capacidad}} {{completa}}<p>
+						<br>
+						<p> Estado: {{estado}}<p>
+						<br>
+						<button type="button" class="btn-off">ASIGNAR</button type="button">
+					</div>
+				</div>
+			{{/estaciones_act_llena}}
 			{{#estaciones_inact}}
 				<div class="estaciones">
 					<div class="cabe">

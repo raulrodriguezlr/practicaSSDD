@@ -66,8 +66,6 @@ public class Bicicleta {
 		this.modelo=modelo;
 	}
 	
-	
-	
 	public long getId() {
 		return id_b;
 	}

@@ -8,7 +8,7 @@ body{
 	color: #363639;
 }
 
-
+/*PAGINA PRINCIPAL*/
 .menu_botones{
 	text-align: center;
 }
@@ -126,6 +126,8 @@ body{
     margin: auto;
     padding-top: 3px;
 }
+
+/*MODULO DE GESTION DE USUARIOS*/
 #header-boton{
 	display:flex;
 	margin-right:47%;
@@ -156,7 +158,6 @@ body{
     
 }
 
-/* DENTRO DE MODULO DE GESTION DE USUARIOS*/
 .up{
 	font-family: Gill Sans MT;
 	font-size: 3em;
@@ -260,9 +261,7 @@ body{
 	margin-bottom:20px ;
 }
 
-
-
-/*GESTION DE ESTACIONES*/
+/*MODULO DE GESTION DE ESTACIONES*/
 
 .mapa{
 	
@@ -330,7 +329,7 @@ body{
     padding-top: 1px;
 }
 
-/* DENTRO DEL MODULO DE BICIS */
+/* MODULO DE BICIS */
 
 .transiciones {
 	height: 400px;

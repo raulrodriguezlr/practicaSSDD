@@ -44,15 +44,6 @@ public class estacionBicicletas {
 		this.estado="ACTIVO";	
 	}
 	
-	public void agregarBici(Bicicleta bici){
-		try {
-			if(bicis.size()<capacidad) {
-				bicis.add(bici);
-			}
-		}catch(NullPointerException ex) {
-			System.out.println("NullPointerException");
-		}
-	}
 	public List<Bicicleta> getBicis(){
 		return bicis;
 	}
@@ -68,8 +59,12 @@ public class estacionBicicletas {
 		}
 	}
 	
-	public void eliminarTodas() {
-		bicis.clear();
+	public boolean estacionLlena() {
+		return capacidad==bicis.size();
+	}
+	
+	public boolean estacionVacia() {
+		return bicis.size()==0;
 	}
 	
 	public void setNumeroSerie(int numSerie) {
@@ -98,14 +93,6 @@ public class estacionBicicletas {
 	}
 	public long getId() {
 		return id;
-	}
-	
-	public boolean estacionLlena() {
-		return capacidad==bicis.size();
-	}
-	
-	public boolean estacionVacia() {
-		return bicis.size()==0;
 	}
 	
 }

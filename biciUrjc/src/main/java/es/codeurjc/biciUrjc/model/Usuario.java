@@ -31,9 +31,7 @@ public class Usuario {
 		this.nombre = name; 
 		this.apellido=apellido;
 		this.contraseña=contraseña;
-	
-	//	this.foto=(photo);
-		
+
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		this.fechaAlta = dtf.format(LocalDateTime.now());
 		this.Estado="ACTIVO";
@@ -46,7 +44,6 @@ public class Usuario {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		this.fechaAlta = dtf.format(LocalDateTime.now());
 		this.contraseña=contraseña;
-	//	this.foto=Optional.empty();
 		this.Estado="ACTIVO";
 				
 	}
