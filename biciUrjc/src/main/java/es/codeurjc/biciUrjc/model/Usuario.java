@@ -30,26 +30,13 @@ public class Usuario {
 		super();
 		this.nombre = name; 
 		this.apellido=apellido;
-		this.contraseña=contraseña;
-	
-	//	this.foto=(photo);
-		
+		this.contraseña=contraseña;	
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		this.fechaAlta = dtf.format(LocalDateTime.now());
 		this.Estado="ACTIVO";
 				
 	}
 	
-	public Usuario(String name,String contraseña) {
-		super();
-		this.nombre = name; 
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-		this.fechaAlta = dtf.format(LocalDateTime.now());
-		this.contraseña=contraseña;
-	//	this.foto=Optional.empty();
-		this.Estado="ACTIVO";
-				
-	}
 	public void setName(String nombreNuevo) {
 	
 		this.nombre=nombreNuevo;

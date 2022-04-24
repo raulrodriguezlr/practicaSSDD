@@ -15,6 +15,7 @@ import es.codeurjc.biciUrjc.model.Bicicleta;
 import es.codeurjc.biciUrjc.model.Usuario;
 import es.codeurjc.biciUrjc.model.estacionBicicletas;
 import es.codeurjc.biciUrjc.repository.RepoBicicletas;
+import es.codeurjc.biciUrjc.repository.RepoEstacionBicis;
 import es.codeurjc.biciUrjc.service.BicicletaService;
 import es.codeurjc.biciUrjc.service.EstacionService;
 
@@ -29,7 +30,7 @@ public class BicicletaController {
 	@Autowired
 	private EstacionService estaService;
 	@Autowired
-	private EstacionService estacionInterface;
+	private RepoEstacionBicis estacionInterface;
 	
 
 	@GetMapping("/gestionBicicletas")
