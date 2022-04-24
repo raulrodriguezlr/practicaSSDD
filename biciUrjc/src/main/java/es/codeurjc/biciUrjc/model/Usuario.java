@@ -30,19 +30,12 @@ public class Usuario {
 		super();
 		this.nombre = name; 
 		this.apellido=apellido;
-<<<<<<< HEAD
 		this.contraseña=contraseña;
-
-=======
-		this.contraseña=contraseña;	
->>>>>>> 43efc901d935db4ec64b1364462a993a1ee3a934
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		this.fechaAlta = dtf.format(LocalDateTime.now());
 		this.Estado="ACTIVO";
 				
 	}
-	
-<<<<<<< HEAD
 	public Usuario(String name,String contraseña) {
 		super();
 		this.nombre = name; 
@@ -52,8 +45,6 @@ public class Usuario {
 		this.Estado="ACTIVO";
 				
 	}
-=======
->>>>>>> 43efc901d935db4ec64b1364462a993a1ee3a934
 	public void setName(String nombreNuevo) {
 	
 		this.nombre=nombreNuevo;
